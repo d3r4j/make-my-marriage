@@ -1,0 +1,1542 @@
+<header
+  class="site-header sticky top-0 z-50 bg-parchment/95 backdrop-blur-sm border-b border-borderSoft transition-colors"
+>
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 h-20 flex items-center justify-between">
+    <!-- Left: Wordmark -->
+    <a
+      class="site-brand-link flex items-center"
+      routerLink="/"
+      aria-label="Make My Marriage home"
+      (click)="scrollToTop()"
+    >
+      <img
+        class="site-brand-logo"
+        src="/images/brand/make-my-marriage-logo-transparent.png"
+        alt="Make My Marriage — Plan, Organize, Celebrate Together"
+      />
+    </a>
+    <!-- Center Links -->
+    <nav
+      class="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.18em] font-medium text-taupe"
+    >
+      <a class="hover:text-wine transition-colors" href="#showcase">Features</a>
+      <a class="hover:text-wine transition-colors" href="#moving-parts">Workflows</a>
+      <a class="hover:text-wine transition-colors" href="#wedding-website">Wedding Website</a>
+      <a class="hover:text-wine transition-colors" href="#qr-photo-sharing">QR Photos</a>
+      <a class="hover:text-wine transition-colors" href="#budget-vendors">Budget &amp; Vendors</a>
+    </nav>
+    <!-- Right Action Items -->
+    <div class="flex items-center gap-6">
+      <a
+        class="text-xs uppercase tracking-[0.18em] font-medium text-taupe hover:text-espresso transition-colors"
+        routerLink="/auth"
+        >Sign In</a
+      >
+      <a
+        class="site-start-link inline-flex items-center justify-center font-sans text-xs uppercase tracking-[0.18em] font-semibold bg-wine text-[#F7F3EC] hover:bg-wine-deep px-5 py-2.5 rounded-lg transition-colors shadow-sm"
+        href="#showcase"
+      >
+        Start Planning
+      </a>
+    </div>
+  </div>
+</header>
+<main class="w-full">
+  <!-- 2. HERO SECTION (70-80vh purely typography, whitespace, and composition) -->
+  <section
+    class="min-h-[75vh] flex flex-col justify-center items-center text-center px-6 sm:px-10 py-24 sm:py-32 max-w-5xl mx-auto"
+  >
+    <div class="text-[11px] font-semibold uppercase tracking-[0.3em] text-taupe mb-6">
+      BUILT FOR INDIAN WEDDINGS
+    </div>
+    <h1
+      class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-espresso tracking-tight leading-[1.15] max-w-4xl"
+    >
+      Everything your wedding needs.<br />
+      <span class="italic text-wine">In one place.</span>
+    </h1>
+    <p
+      class="font-sans text-base sm:text-lg text-taupe font-normal leading-relaxed max-w-2xl mt-8 mb-10"
+    >
+      Plan functions, organize your family, manage guests, track your budget, discover vendors, and
+      create your wedding website — all from one shared space.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+      <a
+        class="w-full sm:w-auto inline-flex items-center justify-center font-sans text-xs uppercase tracking-[0.2em] font-semibold bg-wine text-[#F7F3EC] hover:bg-wine-deep px-8 py-3.5 rounded-lg transition-all shadow-sm"
+        href="#showcase"
+      >
+        START PLANNING
+      </a>
+      <a
+        class="w-full sm:w-auto inline-flex items-center justify-center font-sans text-xs uppercase tracking-[0.2em] font-medium bg-transparent border border-borderSoft text-espresso hover:bg-card px-8 py-3.5 rounded-lg transition-all"
+        href="#moving-parts"
+      >
+        SEE HOW IT WORKS
+      </a>
+    </div>
+    <!-- Subtle Typographic Navigation Line -->
+    <div
+      class="mt-14 pt-8 border-t border-borderSoft/60 w-full max-w-xl flex items-center justify-center gap-4 text-[11px] uppercase tracking-[0.28em] text-taupe"
+    >
+      <span class="">PLAN</span>
+      <span class="text-champagne font-light">/</span>
+      <span class="">MANAGE</span>
+      <span class="text-champagne font-light">/</span>
+      <span class="">SHARE</span>
+      <span class="text-champagne font-light">/</span>
+      <span class="">REMEMBER</span>
+    </div>
+  </section>
+  <!-- 3. SECTION 2 — PRODUCT SHOWCASE (Single large polished product dashboard) -->
+  <section class="w-full bg-mushroom border-y border-borderSoft py-24 sm:py-28" id="showcase">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="font-serif text-3xl sm:text-4xl text-espresso font-normal">
+          One wedding. A lot to manage.
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-taupe mt-3">
+          Make My Marriage brings your functions, guests, tasks, budget, vendors, and guest
+          experience into one shared workspace.
+        </p>
+      </div>
+      <!-- Master Product Dashboard Frame -->
+      <div
+        class="bg-card rounded-xl border border-borderSoft shadow-[0_20px_45px_-15px_rgba(33,26,27,0.08)] overflow-hidden"
+      >
+        <!-- App Header -->
+        <div
+          class="bg-parchment/70 px-6 py-4 border-b border-borderSoft flex flex-wrap items-center justify-between gap-4"
+        >
+          <div class="flex items-center gap-3">
+            <span class="w-2.5 h-2.5 rounded-full bg-wine"></span>
+            <div>
+              <span class="font-serif text-base sm:text-lg font-medium text-espresso"
+                >Dhiraj &amp; Priya</span
+              >
+              <span class="text-xs text-taupe ml-2">— 82 days to wedding</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span
+              class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-card border border-borderSoft text-[11px] font-medium text-wine tracking-wider uppercase"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Active Workspace
+            </span>
+            <span class="text-xs text-taupe hidden sm:inline font-mono">ID: MMM-2026</span>
+          </div>
+        </div>
+        <!-- App Inner View -->
+        <div class="p-6 sm:p-8 space-y-6">
+          <!-- Row 1: Upcoming Functions -->
+          <div>
+            <div class="text-[11px] uppercase tracking-[0.2em] text-taupe font-semibold mb-3">
+              Upcoming Functions
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div
+                class="p-4 rounded-lg bg-parchment/60 border border-borderSoft flex justify-between items-center"
+              >
+                <div>
+                  <div class="font-serif text-base font-medium text-espresso">Haldi</div>
+                  <div class="text-xs text-taupe mt-0.5">12 Dec · 11:00 AM</div>
+                </div>
+                <span
+                  class="text-[10px] font-mono uppercase tracking-wider text-taupe bg-card px-2.5 py-1 rounded border border-borderSoft"
+                  >Day 1</span
+                >
+              </div>
+              <div
+                class="p-4 rounded-lg bg-parchment/60 border border-borderSoft flex justify-between items-center"
+              >
+                <div>
+                  <div class="font-serif text-base font-medium text-espresso">Sangeet</div>
+                  <div class="text-xs text-taupe mt-0.5">14 Dec · 7:00 PM</div>
+                </div>
+                <span
+                  class="text-[10px] font-mono uppercase tracking-wider text-taupe bg-card px-2.5 py-1 rounded border border-borderSoft"
+                  >Day 2</span
+                >
+              </div>
+              <div
+                class="p-4 rounded-lg bg-parchment/60 border border-borderSoft flex justify-between items-center"
+              >
+                <div>
+                  <div class="font-serif text-base font-medium text-espresso">Wedding</div>
+                  <div class="text-xs text-taupe mt-0.5">18 Dec · 6:30 PM</div>
+                </div>
+                <span
+                  class="text-[10px] font-mono uppercase tracking-wider text-taupe bg-card px-2.5 py-1 rounded border border-borderSoft"
+                  >Day 3</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Row 2: Metrics Strip (Tasks, Guests, Budget, Vendors) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
+            <!-- Tasks -->
+            <div class="p-5 rounded-lg bg-parchment/40 border border-borderSoft">
+              <div class="text-[11px] uppercase tracking-wider text-taupe font-medium">Tasks</div>
+              <div class="font-serif text-2xl text-espresso mt-1 font-medium">33 Total</div>
+              <div class="text-xs text-taupe mt-1">24 completed · 7 pending · 2 overdue</div>
+              <div class="w-full h-1.5 bg-borderSoft/60 rounded-full mt-3 overflow-hidden flex">
+                <div class="bg-wine h-full" style="width: 72%"></div>
+                <div class="bg-champagne h-full" style="width: 21%"></div>
+                <div class="bg-red-400 h-full" style="width: 7%"></div>
+              </div>
+            </div>
+            <!-- Guests -->
+            <div class="p-5 rounded-lg bg-parchment/40 border border-borderSoft">
+              <div class="text-[11px] uppercase tracking-wider text-taupe font-medium">Guests</div>
+              <div class="font-serif text-2xl text-espresso mt-1 font-medium">276 Confirmed</div>
+              <div class="text-xs text-taupe mt-1">428 invited · 64% response rate</div>
+              <div class="w-full h-1.5 bg-borderSoft/60 rounded-full mt-3 overflow-hidden">
+                <div class="bg-wine h-full rounded-full" style="width: 64%"></div>
+              </div>
+            </div>
+            <!-- Budget -->
+            <div class="p-5 rounded-lg bg-parchment/40 border border-borderSoft">
+              <div class="text-[11px] uppercase tracking-wider text-taupe font-medium">
+                Budget Ledger
+              </div>
+              <div class="font-serif text-2xl text-espresso mt-1 font-medium">₹8.4L Spent</div>
+              <div class="text-xs text-taupe mt-1">₹12L total · ₹3.6L remaining</div>
+              <div class="w-full h-1.5 bg-borderSoft/60 rounded-full mt-3 overflow-hidden flex">
+                <div class="bg-wine h-full" style="width: 70%"></div>
+                <div class="bg-champagne h-full" style="width: 30%"></div>
+              </div>
+            </div>
+            <!-- Vendors -->
+            <div
+              class="p-5 rounded-lg bg-parchment/40 border border-borderSoft flex flex-col justify-between"
+            >
+              <div>
+                <div class="text-[11px] uppercase tracking-wider text-taupe font-medium">
+                  Vendors
+                </div>
+                <div class="font-serif text-2xl text-espresso mt-1 font-medium">8 Saved</div>
+                <div class="text-xs text-taupe mt-1">5 contracted · 3 in negotiation</div>
+              </div>
+              <div class="text-[11px] text-wine font-medium pt-2">All milestones on track →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 4. SECTION 3 — MANY MOVING PARTS (Typography-led horizontal sequence) -->
+  <section class="w-full py-24 sm:py-32 max-w-7xl mx-auto px-6 sm:px-10" id="moving-parts">
+    <!-- Editorial Eyebrow & Header -->
+    <div class="text-center max-w-3xl mx-auto space-y-4 mb-14">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-borderSoft/80 shadow-sm"
+      >
+        <span class="w-1.5 h-1.5 rotate-45 bg-champagne"></span>
+        <span class="text-[10px] font-semibold uppercase tracking-[0.28em] text-taupe"
+          >ORCHESTRATION ARCHITECTURE</span
+        >
+      </div>
+      <h2
+        class="font-serif text-3xl sm:text-5xl text-espresso font-normal leading-[1.15] tracking-tight"
+      >
+        Indian weddings come with a lot of moving parts.
+      </h2>
+      <p
+        class="font-sans text-sm sm:text-base text-taupe font-normal max-w-xl mx-auto leading-relaxed pt-1"
+      >
+        Seven essential pillars synchronized across ceremonies, families, and venues in real-time.
+      </p>
+    </div>
+
+    <!-- Connected Flow Architecture Grid / Timeline -->
+    <div
+      class="bg-card border border-borderSoft/80 rounded-2xl p-6 sm:p-10 shadow-[0_20px_45px_-15px_rgba(33,26,27,0.06)] relative overflow-hidden"
+    >
+      <!-- Background subtle guide line (desktop) -->
+      <div
+        class="hidden lg:block absolute top-[52px] left-12 right-12 h-px bg-gradient-to-r from-transparent via-borderSoft to-transparent pointer-events-none"
+      ></div>
+
+      <!-- Flow Nodes Container -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4 lg:gap-3 relative z-10"
+      >
+        <!-- Node 01: Functions -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            01
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Functions
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">
+            Run-of-show &amp; muhurtas
+          </p>
+        </div>
+
+        <!-- Node 02: Guests -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            02
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Guests
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">
+            RSVP &amp; dietary circles
+          </p>
+        </div>
+
+        <!-- Node 03: Tasks -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            03
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Tasks
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">Family delegations</p>
+        </div>
+
+        <!-- Node 04: Vendors -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            04
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Vendors
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">Curated directory</p>
+        </div>
+
+        <!-- Node 05: Budget -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            05
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Budget
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">
+            Milestones &amp; deposits
+          </p>
+        </div>
+
+        <!-- Node 06: Invitation -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            06
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Invitation
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">
+            Personalized web links
+          </p>
+        </div>
+
+        <!-- Node 07: Memories -->
+        <div
+          class="group flex flex-col items-center text-center p-4 rounded-xl bg-parchment/50 border border-borderSoft/60 hover:border-champagne hover:bg-parchment transition-all duration-300"
+        >
+          <div
+            class="w-7 h-7 rounded-full bg-card border border-borderSoft flex items-center justify-center text-[10px] font-mono text-champagne font-semibold mb-3 group-hover:border-wine group-hover:text-wine transition-colors shadow-sm"
+          >
+            07
+          </div>
+          <div
+            class="font-sans text-xs font-semibold uppercase tracking-[0.2em] text-espresso group-hover:text-wine transition-colors"
+          >
+            Memories
+          </div>
+          <p class="text-[11px] text-taupe leading-tight mt-1.5 font-normal">
+            Crowdsourced 4K candids
+          </p>
+        </div>
+      </div>
+
+      <!-- Bottom Punchline Statement -->
+      <div
+        class="mt-10 pt-6 border-t border-borderSoft/60 text-center flex flex-col items-center justify-center space-y-2"
+      >
+        <div class="flex items-center justify-center gap-3 text-champagne font-light text-xs">
+          <span class="h-px w-8 bg-borderSoft"></span>
+          <span class="w-1.5 h-1.5 rotate-45 bg-champagne"></span>
+          <span class="h-px w-8 bg-borderSoft"></span>
+        </div>
+        <p class="font-serif text-2xl sm:text-3xl text-wine italic">
+          Bring them together.
+          <span class="font-normal text-espresso not-italic font-serif">In absolute harmony.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- 5. SECTION 4 — PLAN / MANAGE / SHARE / REMEMBER (Editorial Rows) -->
+  <section class="w-full border-t border-borderSoft py-24 sm:py-28 bg-parchment">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10 space-y-12">
+      <!-- Row 01 -->
+      <div
+        class="pt-10 pb-2 border-t border-borderSoft grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline"
+      >
+        <div
+          class="md:col-span-2 font-serif italic text-4xl sm:text-5xl text-champagne font-light tracking-tight"
+        >
+          01
+        </div>
+        <div class="md:col-span-5 space-y-1.5">
+          <h3
+            class="font-serif text-2xl sm:text-3xl font-normal text-espresso tracking-wide uppercase"
+          >
+            PLAN
+          </h3>
+          <p class="text-xs uppercase tracking-[0.2em] text-wine font-medium">
+            Functions · Schedule · Tasks
+          </p>
+        </div>
+        <div
+          class="md:col-span-5 text-base sm:text-lg text-taupe font-normal leading-relaxed font-sans"
+        >
+          Structure every ceremony with clear run-of-show timelines and coordinator duties.
+        </div>
+      </div>
+
+      <!-- Row 02 -->
+      <div
+        class="pt-10 pb-2 border-t border-borderSoft grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline"
+      >
+        <div
+          class="md:col-span-2 font-serif italic text-4xl sm:text-5xl text-champagne font-light tracking-tight"
+        >
+          02
+        </div>
+        <div class="md:col-span-5 space-y-1.5">
+          <h3
+            class="font-serif text-2xl sm:text-3xl font-normal text-espresso tracking-wide uppercase"
+          >
+            MANAGE
+          </h3>
+          <p class="text-xs uppercase tracking-[0.2em] text-wine font-medium">
+            Guests · Budget · Vendors
+          </p>
+        </div>
+        <div
+          class="md:col-span-5 text-base sm:text-lg text-taupe font-normal leading-relaxed font-sans"
+        >
+          Keep guest lists, vendor scopes, and financial milestones strictly organized.
+        </div>
+      </div>
+
+      <!-- Row 03 -->
+      <div
+        class="pt-10 pb-2 border-t border-borderSoft grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline"
+      >
+        <div
+          class="md:col-span-2 font-serif italic text-4xl sm:text-5xl text-champagne font-light tracking-tight"
+        >
+          03
+        </div>
+        <div class="md:col-span-5 space-y-1.5">
+          <h3
+            class="font-serif text-2xl sm:text-3xl font-normal text-espresso tracking-wide uppercase"
+          >
+            SHARE
+          </h3>
+          <p class="text-xs uppercase tracking-[0.2em] text-wine font-medium">
+            Wedding Website · Invitation · RSVP · Live Stream
+          </p>
+        </div>
+        <div
+          class="md:col-span-5 text-base sm:text-lg text-taupe font-normal leading-relaxed font-sans"
+        >
+          Send instant personalized family links and broadcast every ritual in real-time.
+        </div>
+      </div>
+
+      <!-- Row 04 -->
+      <div
+        class="pt-10 pb-2 border-t border-borderSoft grid grid-cols-1 md:grid-cols-12 gap-6 items-baseline"
+      >
+        <div
+          class="md:col-span-2 font-serif italic text-4xl sm:text-5xl text-champagne font-light tracking-tight"
+        >
+          04
+        </div>
+        <div class="md:col-span-5 space-y-1.5">
+          <h3
+            class="font-serif text-2xl sm:text-3xl font-normal text-espresso tracking-wide uppercase"
+          >
+            REMEMBER
+          </h3>
+          <p class="text-xs uppercase tracking-[0.2em] text-wine font-medium">
+            Gallery · Function Albums · QR Photo Upload
+          </p>
+        </div>
+        <div
+          class="md:col-span-5 text-base sm:text-lg text-taupe font-normal leading-relaxed font-sans"
+        >
+          Collect high-resolution candids directly into ceremony-specific archives.
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 6. SECTION 5 — WEDDING WEBSITE (Deep Wine showcase with Interactive Theme Switcher) -->
+  <section class="w-full bg-wine-deep text-[#F7F3EC] py-24 sm:py-32" id="wedding-website">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+      <div class="max-w-2xl mb-12">
+        <div class="text-[11px] font-semibold uppercase tracking-[0.25em] text-champagne mb-3">
+          Digital Presence
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl font-normal leading-tight">
+          Every wedding deserves its own website.
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-[#F7F3EC]/70 mt-4 leading-relaxed">
+          Every celebration on Make My Marriage automatically receives an elegant, responsive
+          website. Share details, capture RSVPs, and stream live ceremonies with zero design hassle.
+        </p>
+      </div>
+      <!-- Theme Selector Controls -->
+      <div class="flex items-center gap-3 mb-8 overflow-x-auto pb-2">
+        <span class="text-xs uppercase tracking-widest text-champagne font-medium mr-2"
+          >Theme:</span
+        >
+        <button
+          class="theme-btn px-4 py-2 rounded-md text-xs uppercase tracking-wider font-semibold bg-[#EFE9DF] text-wine transition-all"
+          id="btn-theme-traditional"
+          (click)="switchTheme('traditional')"
+        >
+          1. Traditional / Royal
+        </button>
+        <button
+          class="theme-btn px-4 py-2 rounded-md text-xs uppercase tracking-wider font-medium text-[#F7F3EC]/70 hover:text-[#F7F3EC] bg-white/5 border border-white/10 transition-all"
+          id="btn-theme-modern"
+          (click)="switchTheme('modern')"
+        >
+          2. Modern Indian
+        </button>
+        <button
+          class="theme-btn px-4 py-2 rounded-md text-xs uppercase tracking-wider font-medium text-[#F7F3EC]/70 hover:text-[#F7F3EC] bg-white/5 border border-white/10 transition-all"
+          id="btn-theme-minimal"
+          (click)="switchTheme('minimal')"
+        >
+          3. Minimal / Floral
+        </button>
+      </div>
+      <!-- Large Browser Mockup of Wedding Website -->
+      <div
+        class="rounded-xl bg-card text-espresso border border-champagne/30 shadow-[0_25px_60px_rgba(0,0,0,0.45)] overflow-hidden"
+      >
+        <!-- Browser Top Frame -->
+        <div
+          class="px-5 py-3.5 bg-parchment border-b border-borderSoft flex items-center justify-between"
+        >
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-borderSoft"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-borderSoft"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-borderSoft"></span>
+            <span class="font-mono text-xs text-taupe ml-3">makemymarriage.com/dhiraj-priya</span>
+          </div>
+          <span
+            class="text-[10px] uppercase tracking-wider text-wine font-semibold bg-wine/10 px-2 py-0.5 rounded border border-wine/20"
+          >
+            Live Preview
+          </span>
+        </div>
+        <!-- Dynamic Website Content Area -->
+        <div class="p-8 sm:p-14 text-center transition-all bg-card" id="website-preview-canvas">
+          <!-- Accent Ornament -->
+          <div
+            class="w-6 h-6 rotate-45 border border-champagne bg-wine mx-auto mb-5 transition-all"
+            id="theme-ornament"
+          ></div>
+          <span
+            class="text-[11px] uppercase tracking-[0.3em] text-champagne font-semibold block mb-2"
+            id="theme-invitation-badge"
+          >
+            You're Invited
+          </span>
+          <h3
+            class="font-serif text-3xl sm:text-5xl font-normal text-espresso transition-all"
+            id="theme-names"
+          >
+            Dhiraj &amp; Priya
+          </h3>
+          <p
+            class="text-xs uppercase tracking-[0.25em] text-taupe mt-3 font-medium"
+            id="theme-date"
+          >
+            18 December 2026 · Nagpur, India
+          </p>
+          <!-- Function schedule items -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto my-8 text-center">
+            <div class="p-4 rounded-lg bg-parchment/60 border border-borderSoft">
+              <span class="text-[10px] uppercase tracking-wider text-taupe block">Function 01</span>
+              <span class="font-serif text-base font-semibold text-espresso block mt-1">Haldi</span>
+              <span class="text-xs text-wine mt-1 block font-medium">12 Dec · 11:00 AM</span>
+            </div>
+            <div class="p-4 rounded-lg bg-parchment/60 border border-borderSoft">
+              <span class="text-[10px] uppercase tracking-wider text-taupe block">Function 02</span>
+              <span class="font-serif text-base font-semibold text-espresso block mt-1"
+                >Sangeet</span
+              >
+              <span class="text-xs text-wine mt-1 block font-medium">14 Dec · 7:00 PM</span>
+            </div>
+            <div class="p-4 rounded-lg bg-parchment/60 border border-borderSoft">
+              <span class="text-[10px] uppercase tracking-wider text-taupe block">Function 03</span>
+              <span class="font-serif text-base font-semibold text-espresso block mt-1"
+                >Wedding</span
+              >
+              <span class="text-xs text-wine mt-1 block font-medium">18 Dec · 6:30 PM</span>
+            </div>
+          </div>
+          <!-- Actions inside site -->
+          <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <span
+              class="px-6 py-2.5 rounded-md bg-wine text-[#F7F3EC] text-xs font-semibold uppercase tracking-wider shadow-sm"
+              id="theme-action-primary"
+            >
+              RSVP
+            </span>
+            <span
+              class="px-5 py-2.5 rounded-md bg-parchment border border-borderSoft text-espresso text-xs font-medium uppercase tracking-wider"
+            >
+              Gallery
+            </span>
+            <span
+              class="px-5 py-2.5 rounded-md bg-parchment border border-borderSoft text-espresso text-xs font-medium uppercase tracking-wider"
+            >
+              Watch Live
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 7. SECTION 6 — GUEST EXPERIENCE (One link for your guests) -->
+  <!-- GUEST EXPERIENCE: ONE LINK FOR YOUR GUESTS -->
+  <section
+    class="w-full py-24 sm:py-28 max-w-6xl mx-auto px-6 sm:px-10 border-t border-borderSoft"
+    id="guest-experience"
+  >
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 space-y-6">
+        <div class="text-[11px] font-semibold uppercase tracking-[0.25em] text-champagne">
+          Guest Experience
+        </div>
+        <h2 class="font-serif text-3xl sm:text-5xl text-espresso font-normal leading-tight">
+          One link for your guests.<br />
+          <span class="italic text-wine">Everything they need.</span>
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-taupe leading-relaxed">
+          Send personalized digital invitation links to each family. They view their personalized
+          schedule, meal preferences, travel itinerary, and live streaming links — all without
+          installing an app.
+        </p>
+        <div class="pt-2 space-y-3">
+          <div class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-wine mt-2"></span>
+            <div>
+              <div class="text-xs font-semibold text-espresso uppercase tracking-wider">
+                Tailored Function Invites
+              </div>
+              <div class="text-xs text-taupe mt-0.5">
+                Guests see only the ceremonies they are invited to attend.
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-wine mt-2"></span>
+            <div>
+              <div class="text-xs font-semibold text-espresso uppercase tracking-wider">
+                Live WhatsApp Broadcasts
+              </div>
+              <div class="text-xs text-taupe mt-0.5">
+                Broadcast timing shifts, baraat arrivals, and directions instantly.
+              </div>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-wine mt-2"></span>
+            <div>
+              <div class="text-xs font-semibold text-espresso uppercase tracking-wider">
+                One-Touch RSVP Confirmation
+              </div>
+              <div class="text-xs text-taupe mt-0.5">
+                Collect headcounts, dietary requirements, and room stays in real-time.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Invite Mockup Card -->
+      <div class="lg:col-span-6 flex justify-center">
+        <div
+          class="w-full max-w-sm rounded-xl bg-card border border-borderSoft p-6 shadow-sm space-y-5"
+        >
+          <div class="flex items-center justify-between pb-3 border-b border-borderSoft/60">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rotate-45 bg-wine"></span>
+              <span class="font-serif text-xs font-semibold tracking-wider uppercase text-espresso"
+                >Family Invitation</span
+              >
+            </div>
+            <span
+              class="px-2 py-0.5 rounded text-[10px] font-mono uppercase bg-parchment text-taupe border border-borderSoft"
+              id="rsvp-status-badge"
+              >Pending</span
+            >
+          </div>
+          <div class="text-center space-y-1 py-1">
+            <span class="text-[11px] uppercase tracking-widest text-champagne font-medium"
+              >Welcoming With Joy</span
+            >
+            <h3 class="font-serif text-2xl text-espresso">Sharma Family</h3>
+            <p class="text-xs text-taupe">4 Guests · Nagpur &amp; Mumbai</p>
+          </div>
+          <div class="p-3.5 rounded-lg bg-parchment/60 border border-borderSoft space-y-2 text-xs">
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-espresso">Haldi Ceremony</span>
+              <span class="text-taupe font-mono text-[11px]">12 Dec · 11:00 AM</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-espresso">Sangeet Gala</span>
+              <span class="text-taupe font-mono text-[11px]">14 Dec · 7:00 PM</span>
+            </div>
+            <div class="flex justify-between items-center">
+              <span class="font-medium text-espresso">Pheras &amp; Reception</span>
+              <span class="text-taupe font-mono text-[11px]">18 Dec · 6:30 PM</span>
+            </div>
+          </div>
+          <div class="pt-1">
+            <button
+              class="w-full py-2.5 rounded-md bg-wine hover:bg-wine-deep text-[#F7F3EC] text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm"
+              id="rsvp-sim-btn"
+              (click)="toggleRsvpSim()"
+            >
+              Simulate Guest RSVP Confirmation →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. DEDICATED QR CODE PHOTO SHARING SECTION -->
+  <section
+    class="w-full bg-mushroom border-t border-borderSoft py-24 sm:py-32"
+    id="qr-photo-sharing"
+  >
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+      <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-card border border-borderSoft/80 shadow-sm"
+        >
+          <span class="w-1.5 h-1.5 rotate-45 bg-champagne"></span
+          ><span class="text-[10px] font-semibold uppercase tracking-[0.28em] text-taupe"
+            >MOMENTS ARCHIVED IN REAL TIME</span
+          >
+        </div>
+        <h2
+          class="font-serif text-3xl sm:text-5xl lg:text-6xl text-espresso font-normal leading-[1.15]"
+        >
+          Your guests take the photos.<br /><span class="italic text-wine"
+            >We keep them together.</span
+          >
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-taupe max-w-xl mx-auto leading-relaxed pt-1">
+          Tabletop QR codes sync guest candids straight into ceremony albums — full resolution, zero
+          apps.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-14">
+        <div
+          class="lg:col-span-5 bg-card border border-borderSoft rounded-xl p-6 sm:p-8 shadow-sm flex flex-col items-center text-center space-y-5 relative overflow-hidden"
+        >
+          <div
+            class="w-full flex items-center justify-between pb-3 border-b border-borderSoft/60 text-xs"
+          >
+            <div class="flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span
+              ><span class="text-[10px] font-mono uppercase tracking-wider text-taupe"
+                >Table Standee · Courtyard Lawn</span
+              >
+            </div>
+            <span
+              class="text-[10px] font-mono uppercase tracking-widest text-wine font-semibold bg-wine/10 px-2 py-0.5 rounded border border-wine/20"
+              >Scan to Add</span
+            >
+          </div>
+          <div
+            class="w-full bg-[#FAF8F5] border border-champagne/40 rounded-lg p-6 shadow-sm relative space-y-4"
+          >
+            <div
+              class="absolute top-2 left-2 w-2.5 h-2.5 border-t-2 border-l-2 border-champagne"
+            ></div>
+            <div
+              class="absolute top-2 right-2 w-2.5 h-2.5 border-t-2 border-r-2 border-champagne"
+            ></div>
+            <div
+              class="absolute bottom-2 left-2 w-2.5 h-2.5 border-b-2 border-l-2 border-champagne"
+            ></div>
+            <div
+              class="absolute bottom-2 right-2 w-2.5 h-2.5 border-b-2 border-r-2 border-champagne"
+            ></div>
+            <div class="space-y-1">
+              <div class="w-4 h-4 rotate-45 border border-champagne bg-wine mx-auto mb-2"></div>
+              <h3 class="font-serif text-lg sm:text-xl text-espresso font-normal tracking-wide">
+                Dhiraj &amp; Priya
+              </h3>
+              <p class="text-[10px] uppercase tracking-[0.25em] text-champagne font-medium">
+                18 December 2026 · Nagpur
+              </p>
+              <p class="text-xs text-taupe font-serif italic pt-1">
+                Point phone camera to share candid photos
+              </p>
+            </div>
+            <div
+              class="relative p-4 bg-white rounded-lg border border-borderSoft/60 shadow-sm mx-auto max-w-[220px]"
+            >
+              <svg
+                class="w-44 h-44 sm:w-48 sm:h-48 mx-auto text-espresso"
+                viewBox="0 0 100 100"
+                fill="currentColor"
+              >
+                <rect x="8" y="8" width="28" height="28" fill="#58182E" rx="2"></rect>
+                <rect x="13" y="13" width="18" height="18" fill="#FAF8F5" rx="1"></rect>
+                <rect x="17" y="17" width="10" height="10" fill="#58182E" rx="0.5"></rect>
+                <rect x="64" y="8" width="28" height="28" fill="#58182E" rx="2"></rect>
+                <rect x="69" y="13" width="18" height="18" fill="#FAF8F5" rx="1"></rect>
+                <rect x="73" y="17" width="10" height="10" fill="#58182E" rx="0.5"></rect>
+                <rect x="8" y="64" width="28" height="28" fill="#58182E" rx="2"></rect>
+                <rect x="13" y="69" width="18" height="18" fill="#FAF8F5" rx="1"></rect>
+                <rect x="17" y="73" width="10" height="10" fill="#58182E" rx="0.5"></rect>
+                <rect x="41" y="9" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="49" y="9" width="5" height="5" fill="#C5A880"></rect>
+                <rect x="41" y="17" width="5" height="5" fill="#58182E"></rect>
+                <rect x="49" y="22" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="41" y="29" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="54" y="14" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="10" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="18" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="26" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="34" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="42" y="43" width="5" height="5" fill="#58182E"></rect>
+                <rect x="50" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="58" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="66" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="74" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="82" y="43" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="44" y="44" width="12" height="12" fill="#58182E" rx="2"></rect>
+                <polygon points="50,47 54,53 46,53" fill="#C5A880"></polygon>
+                <rect x="43" y="57" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="51" y="52" width="5" height="5" fill="#C5A880"></rect>
+                <rect x="64" y="49" width="5" height="5" fill="#58182E"></rect>
+                <rect x="72" y="49" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="80" y="49" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="88" y="49" width="5" height="5" fill="#58182E"></rect>
+                <rect x="64" y="57" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="77" y="57" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="85" y="57" width="5" height="5" fill="#C5A880"></rect>
+                <rect x="43" y="69" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="51" y="69" width="5" height="5" fill="#58182E"></rect>
+                <rect x="43" y="77" width="5" height="5" fill="#58182E"></rect>
+                <rect x="51" y="82" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="64" y="66" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="72" y="66" width="5" height="5" fill="#58182E"></rect>
+                <rect x="80" y="66" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="64" y="74" width="5" height="5" fill="#C5A880"></rect>
+                <rect x="72" y="74" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="88" y="74" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="64" y="82" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="77" y="82" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="85" y="82" width="5" height="5" fill="#58182E"></rect>
+                <rect x="72" y="89" width="5" height="5" fill="#211A1B"></rect>
+                <rect x="80" y="89" width="5" height="5" fill="#C5A880"></rect>
+              </svg>
+            </div>
+            <div
+              class="flex items-center justify-center gap-4 text-[10px] uppercase tracking-wider font-mono text-taupe pt-1"
+            >
+              <span class="">Haldi</span><span class="text-champagne">•</span
+              ><span class="">Sangeet</span><span class="text-champagne">•</span
+              ><span class="">Vivah</span>
+            </div>
+          </div>
+          <div
+            class="w-full pt-1 flex items-center justify-between text-xs text-taupe border-t border-borderSoft/60"
+          >
+            <div class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-champagne animate-pulse"></span
+              ><span class="font-mono text-[11px]">Instant Camera Upload</span>
+            </div>
+            <span class="text-wine font-medium text-[11px]">100% Original Resolution</span>
+          </div>
+        </div>
+        <div class="lg:col-span-7 space-y-5">
+          <div class="bg-card border border-borderSoft rounded-xl p-6 sm:p-8 space-y-6 shadow-sm">
+            <div
+              class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-borderSoft/60"
+            >
+              <div>
+                <div class="text-[10px] uppercase tracking-[0.25em] font-semibold text-taupe">
+                  GUEST UPLOAD CONSOLE
+                </div>
+                <h3 class="font-serif text-xl sm:text-2xl text-espresso font-normal mt-0.5">
+                  Live Ceremonial Ingestion
+                </h3>
+              </div>
+              <span
+                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-wine/10 border border-wine/20 text-xs font-mono text-wine font-medium"
+                ><span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span> Live
+                Syncing · Real-time Feed</span
+              >
+            </div>
+            <div class="flex flex-wrap items-center gap-2">
+              <button
+                class="px-3.5 py-1.5 rounded-md bg-wine text-[#F7F3EC] text-xs font-mono font-medium tracking-wide shadow-sm"
+              >
+                All (412)</button
+              ><button
+                class="px-3.5 py-1.5 rounded-md bg-parchment/60 hover:bg-parchment border border-borderSoft text-xs font-mono text-taupe hover:text-espresso transition-colors"
+              >
+                Haldi (118)</button
+              ><button
+                class="px-3.5 py-1.5 rounded-md bg-parchment/60 hover:bg-parchment border border-borderSoft text-xs font-mono text-taupe hover:text-espresso transition-colors"
+              >
+                Sangeet (164)</button
+              ><button
+                class="px-3.5 py-1.5 rounded-md bg-parchment/60 hover:bg-parchment border border-borderSoft text-xs font-mono text-taupe hover:text-espresso transition-colors"
+              >
+                Vedic Vivah (130)
+              </button>
+            </div>
+            <div
+              class="p-6 rounded-xl border border-dashed border-champagne bg-parchment/40 flex flex-col items-center justify-center text-center space-y-3"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-card border border-borderSoft flex items-center justify-center text-wine shadow-sm"
+              >
+                <span class="material-symbols-outlined text-lg">cloud_upload</span>
+              </div>
+              <div>
+                <div class="font-serif text-base font-medium text-espresso">
+                  Drop raw guest photos or camera snapshots
+                </div>
+                <p class="text-xs text-taupe mt-1 font-sans">
+                  Batch uploads auto-sorted by wedding ceremony timeline
+                </p>
+              </div>
+              <div class="flex items-center gap-2 pt-1">
+                <span
+                  class="px-2.5 py-1 rounded bg-card border border-borderSoft text-[10px] uppercase font-mono text-taupe"
+                  >4K RAW Accepted</span
+                ><span
+                  class="px-2.5 py-1 rounded bg-card border border-borderSoft text-[10px] uppercase font-mono text-emerald-700"
+                  >Zero Compression</span
+                >
+              </div>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+              <div class="p-3 rounded-lg bg-parchment/50 border border-borderSoft text-center">
+                <div class="font-serif text-lg text-espresso font-medium">412</div>
+                <div class="text-[10px] uppercase tracking-wider text-taupe mt-0.5">
+                  Photos Synced
+                </div>
+              </div>
+              <div class="p-3 rounded-lg bg-parchment/50 border border-borderSoft text-center">
+                <div class="font-serif text-lg text-wine font-medium">86</div>
+                <div class="text-[10px] uppercase tracking-wider text-taupe mt-0.5">
+                  Contributors
+                </div>
+              </div>
+              <div class="p-3 rounded-lg bg-parchment/50 border border-borderSoft text-center">
+                <div class="font-serif text-lg text-espresso font-medium">4K</div>
+                <div class="text-[10px] uppercase tracking-wider text-taupe mt-0.5">
+                  Native Quality
+                </div>
+              </div>
+              <div class="p-3 rounded-lg bg-parchment/50 border border-borderSoft text-center">
+                <div class="font-serif text-lg text-emerald-700 font-medium">100%</div>
+                <div class="text-[10px] uppercase tracking-wider text-taupe mt-0.5">Zero Apps</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="space-y-6 pt-6 border-t border-borderSoft/60">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="text-[10px] uppercase tracking-[0.25em] font-semibold text-champagne">
+              RECENT CANDID MEMORIES
+            </div>
+            <h4 class="font-serif text-2xl sm:text-3xl text-espresso font-normal">
+              Real-Time Candids Uploaded via QR
+            </h4>
+          </div>
+          <span class="text-xs text-taupe font-mono">Automated host moderation active</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            class="rounded-xl bg-card border border-borderSoft overflow-hidden shadow-sm flex flex-col group hover:border-champagne transition-all duration-300"
+          >
+            <div class="relative h-60 overflow-hidden bg-mushroom">
+              <img
+                src="/images/homepage/wedding-candid-mandap.jpg"
+                alt="Courtyard Mandap &amp; Diyas wedding decor"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-3 left-3">
+                <span
+                  class="px-2 py-0.5 rounded bg-card/90 backdrop-blur-sm border border-borderSoft text-[10px] font-mono uppercase tracking-wider text-wine font-semibold shadow-sm"
+                  >Wedding</span
+                >
+              </div>
+              <div class="absolute top-3 right-3">
+                <span
+                  class="px-2 py-0.5 rounded bg-card/90 backdrop-blur-sm border border-borderSoft text-[10px] font-mono text-taupe"
+                  >2m ago</span
+                >
+              </div>
+            </div>
+            <div class="p-4 space-y-2 flex flex-col justify-between flex-grow">
+              <div>
+                <div
+                  class="font-serif text-base font-semibold text-espresso group-hover:text-wine transition-colors"
+                >
+                  Courtyard Mandap &amp; Diyas
+                </div>
+                <p class="text-xs text-taupe mt-0.5 font-sans">
+                  Evening ceremonial aarti with marigold &amp; brass diya.
+                </p>
+              </div>
+              <div
+                class="pt-2 border-t border-borderSoft/60 flex items-center justify-between text-[11px] text-taupe"
+              >
+                <span class="">Table 4 · Amit K.</span
+                ><span class="font-mono text-emerald-700 font-medium">RAW / 24MB</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-xl bg-card border border-borderSoft overflow-hidden shadow-sm flex flex-col group hover:border-champagne transition-all duration-300"
+          >
+            <div class="relative h-60 overflow-hidden bg-mushroom">
+              <img
+                src="/images/homepage/wedding-candid-mehndi.jpg"
+                alt="Bridal Mehndi Details and bangles"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-3 left-3">
+                <span
+                  class="px-2 py-0.5 rounded bg-card/90 backdrop-blur-sm border border-borderSoft text-[10px] font-mono uppercase tracking-wider text-wine font-semibold shadow-sm"
+                  >Sangeet</span
+                >
+              </div>
+              <div class="absolute top-3 right-3">
+                <span
+                  class="px-2 py-0.5 rounded bg-card/90 backdrop-blur-sm border border-borderSoft text-[10px] font-mono text-taupe"
+                  >8m ago</span
+                >
+              </div>
+            </div>
+            <div class="p-4 space-y-2 flex flex-col justify-between flex-grow">
+              <div>
+                <div
+                  class="font-serif text-base font-semibold text-espresso group-hover:text-wine transition-colors"
+                >
+                  Bridal Mehndi Details
+                </div>
+                <p class="text-xs text-taupe mt-0.5 font-sans">
+                  Delicate jasmine florets and Priya's bridal henna.
+                </p>
+              </div>
+              <div
+                class="pt-2 border-t border-borderSoft/60 flex items-center justify-between text-[11px] text-taupe"
+              >
+                <span class="">Bridal Suite · Ritu S.</span
+                ><span class="font-mono text-emerald-700 font-medium">RAW / 18MB</span>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-xl bg-card border border-borderSoft overflow-hidden shadow-sm flex flex-col group hover:border-champagne transition-all duration-300"
+          >
+            <div class="relative h-60 overflow-hidden bg-mushroom">
+              <img
+                src="/images/homepage/wedding-candid-haldi.jpg"
+                alt="Outdoor Haldi celebration under canopy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-3 left-3">
+                <span
+                  class="px-2 py-0.5 rounded bg-card/90 backdrop-blur-sm border border-borderSoft text-[10px] font-mono uppercase tracking-wider text-wine font-semibold shadow-sm"
+                  >Haldi</span
+                >
+              </div>
+              <div class="absolute top-3 right-3">
+                <span
+                  class="px-2 py-0.5 rounded bg-card/90 backdrop-blur-sm border border-borderSoft text-[10px] font-mono text-taupe"
+                  >14m ago</span
+                >
+              </div>
+            </div>
+            <div class="p-4 space-y-2 flex flex-col justify-between flex-grow">
+              <div>
+                <div
+                  class="font-serif text-base font-semibold text-espresso group-hover:text-wine transition-colors"
+                >
+                  Outdoor Canopy Laughter
+                </div>
+                <p class="text-xs text-taupe mt-0.5 font-sans">
+                  Festive joyous moments during the marigold ritual.
+                </p>
+              </div>
+              <div
+                class="pt-2 border-t border-borderSoft/60 flex items-center justify-between text-[11px] text-taupe"
+              >
+                <span class="">Garden Lawn · Kunal V.</span
+                ><span class="font-mono text-emerald-700 font-medium">4K / 32MB</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="w-full py-24 sm:py-32 max-w-6xl mx-auto px-6 sm:px-10" id="budget-vendors">
+    <div class="max-w-3xl mb-14 space-y-3">
+      <div class="text-[11px] font-semibold uppercase tracking-[0.28em] text-champagne">
+        Financial Clarity &amp; Curated Partners
+      </div>
+      <h2 class="font-serif text-3xl sm:text-5xl text-espresso font-normal leading-tight">
+        Calm accounting. <span class="italic text-wine">Curated discovery.</span>
+      </h2>
+      <p class="font-sans text-sm sm:text-base text-taupe leading-relaxed max-w-2xl pt-1">
+        Reconcile ceremonial budgets and discover vetted vendors in one continuous workspace —
+        eliminating spreadsheet anxiety, hidden fee drift, and fractured family WhatsApp threads.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Left: Wedding Budget Ledger (7 cols on lg) -->
+      <div
+        class="lg:col-span-6 p-6 sm:p-8 rounded-xl bg-card border border-borderSoft space-y-6 shadow-sm"
+      >
+        <!-- Header -->
+        <div class="flex items-center justify-between pb-4 border-b border-borderSoft/60">
+          <div>
+            <div class="text-[10px] uppercase tracking-[0.25em] font-semibold text-taupe">
+              Wedding Ledger
+            </div>
+            <h3 class="font-serif text-2xl text-espresso font-normal mt-0.5">Master Allocation</h3>
+          </div>
+          <span
+            class="px-3 py-1 rounded-md bg-parchment border border-borderSoft text-xs font-mono text-wine font-medium"
+          >
+            Cap: ₹12,00,000
+          </span>
+        </div>
+
+        <!-- Key Figures -->
+        <div class="grid grid-cols-2 gap-4 py-1">
+          <div class="p-4 rounded-lg bg-parchment/50 border border-borderSoft/60">
+            <span class="text-[11px] uppercase tracking-wider text-taupe block"
+              >Committed &amp; Spent</span
+            >
+            <span class="font-serif text-2xl sm:text-3xl text-wine font-medium mt-1 block"
+              >₹8,40,000</span
+            >
+            <span class="text-[11px] text-taupe mt-1 block font-mono">70% of total budget</span>
+          </div>
+          <div class="p-4 rounded-lg bg-parchment/50 border border-borderSoft/60">
+            <span class="text-[11px] uppercase tracking-wider text-taupe block"
+              >Available Contingency</span
+            >
+            <span class="font-serif text-2xl sm:text-3xl text-espresso font-medium mt-1 block"
+              >₹3,60,000</span
+            >
+            <span class="text-[11px] text-emerald-700 mt-1 block font-mono">Buffer intact</span>
+          </div>
+        </div>
+
+        <!-- Multi-segment visual progress -->
+        <div class="space-y-2">
+          <div class="flex justify-between text-xs text-taupe">
+            <span class="font-medium text-espresso">Allocation Breakdown</span>
+            <span class="font-mono">₹8.4L spent · ₹3.6L reserve</span>
+          </div>
+          <div
+            class="w-full h-2 bg-parchment rounded-full overflow-hidden flex border border-borderSoft/60"
+          >
+            <div class="bg-wine h-full" style="width: 70%"></div>
+            <div class="bg-champagne h-full" style="width: 30%"></div>
+          </div>
+          <div class="flex items-center gap-4 text-[10px] text-taupe pt-0.5">
+            <span class="inline-flex items-center gap-1.5"
+              ><span class="w-2 h-2 rounded-full bg-wine"></span> Committed (70%)</span
+            >
+            <span class="inline-flex items-center gap-1.5"
+              ><span class="w-2 h-2 rounded-full bg-champagne"></span> Remaining Reserve (30%)</span
+            >
+          </div>
+        </div>
+
+        <!-- Detailed item rows -->
+        <div class="pt-2 border-t border-borderSoft/60 space-y-3">
+          <div
+            class="p-3 rounded-lg bg-parchment/40 border border-borderSoft/60 flex items-center justify-between"
+          >
+            <div>
+              <div class="font-serif text-sm font-semibold text-espresso">
+                Venue &amp; Royal Catering
+              </div>
+              <div class="text-[11px] text-taupe mt-0.5 flex items-center gap-2">
+                <span class="text-emerald-700 font-medium">Contracted</span>
+                <span class="">·</span>
+                <span class="">Mandap lawns &amp; 3 banquets</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-mono text-sm font-medium text-espresso block">₹5,00,000</span>
+              <span class="text-[10px] text-taupe">Milestone 1 paid</span>
+            </div>
+          </div>
+
+          <div
+            class="p-3 rounded-lg bg-parchment/40 border border-borderSoft/60 flex items-center justify-between"
+          >
+            <div>
+              <div class="font-serif text-sm font-semibold text-espresso">
+                Floral &amp; Mandap Architecture
+              </div>
+              <div class="text-[11px] text-taupe mt-0.5 flex items-center gap-2">
+                <span class="text-emerald-700 font-medium">Contracted</span>
+                <span class="">·</span>
+                <span class="">Courtyard &amp; reception dais</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-mono text-sm font-medium text-espresso block">₹1,40,000</span>
+              <span class="text-[10px] text-taupe">Advance logged</span>
+            </div>
+          </div>
+
+          <div
+            class="p-3 rounded-lg bg-parchment/40 border border-borderSoft/60 flex items-center justify-between"
+          >
+            <div>
+              <div class="font-serif text-sm font-semibold text-espresso">
+                Cinematography &amp; Heirloom Stills
+              </div>
+              <div class="text-[11px] text-taupe mt-0.5 flex items-center gap-2">
+                <span class="text-wine font-medium">Quoted</span>
+                <span class="">·</span>
+                <span class="">3 days · 4K candids &amp; drones</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <span class="font-mono text-sm font-medium text-espresso block">₹1,20,000</span>
+              <span class="text-[10px] text-taupe">Pending sign-off</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ledger Footer note -->
+        <div
+          class="pt-2 border-t border-borderSoft/60 flex items-center justify-between text-xs text-taupe"
+        >
+          <span class="inline-flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> 3 of 8 vendor terms
+            finalized
+          </span>
+          <span class="font-mono text-[11px] text-wine font-medium">Zero fee drift</span>
+        </div>
+      </div>
+
+      <!-- Right: Find Vendors (6 cols on lg) -->
+      <div
+        class="lg:col-span-6 p-6 sm:p-8 rounded-xl bg-card border border-borderSoft space-y-6 shadow-sm flex flex-col justify-between"
+      >
+        <!-- Header -->
+        <div class="space-y-3 pb-4 border-b border-borderSoft/60">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-[10px] uppercase tracking-[0.25em] font-semibold text-taupe">
+                Discover &amp; Archive
+              </div>
+              <h3 class="font-serif text-2xl text-espresso font-normal mt-0.5">Curated Partners</h3>
+            </div>
+            <span
+              class="px-2.5 py-1 rounded-md bg-wine/10 border border-wine/20 text-[11px] uppercase tracking-wider text-wine font-medium"
+            >
+              Nagpur &amp; Vidarbha
+            </span>
+          </div>
+          <div class="flex items-center gap-2 text-xs text-taupe">
+            <span class="text-espresso font-medium">Active filter:</span>
+            <span
+              class="px-2.5 py-0.5 rounded bg-parchment border border-borderSoft text-espresso text-[11px]"
+              >Photographers &amp; Cinema</span
+            >
+            <span class="text-borderSoft">·</span>
+            <span class="text-[11px] text-taupe">18 verified matches</span>
+          </div>
+        </div>
+
+        <!-- Vendor Cards -->
+        <div class="space-y-3">
+          <!-- Vendor 1 -->
+          <div
+            class="p-4 rounded-lg bg-parchment/50 border border-borderSoft/60 hover:border-champagne transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
+          >
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-serif text-base font-semibold text-espresso group-hover:text-wine transition-colors"
+                  >ABC Photography</span
+                >
+                <span
+                  class="inline-flex items-center gap-0.5 text-xs text-wine font-medium bg-card px-1.5 py-0.5 rounded border border-borderSoft/60"
+                  >4.9 ★</span
+                >
+              </div>
+              <div class="text-xs text-taupe">
+                Editorial &amp; Ceremonial Candid · Ramdaspeth, Nagpur
+              </div>
+              <div class="text-[11px] font-mono text-espresso font-medium pt-0.5">
+                From ₹1,20,000 / 3-day package
+              </div>
+            </div>
+            <button
+              class="self-start sm:self-center text-xs uppercase tracking-wider font-semibold text-wine bg-card hover:bg-parchment px-3.5 py-2 rounded-md border border-wine/20 hover:border-wine transition-colors min-w-max shadow-sm"
+            >
+              Save to Wedding
+            </button>
+          </div>
+
+          <!-- Vendor 2 -->
+          <div
+            class="p-4 rounded-lg bg-parchment/50 border border-borderSoft/60 hover:border-champagne transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
+          >
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-serif text-base font-semibold text-espresso group-hover:text-wine transition-colors"
+                  >Heritage Floral &amp; Mandap</span
+                >
+                <span
+                  class="inline-flex items-center gap-0.5 text-xs text-wine font-medium bg-card px-1.5 py-0.5 rounded border border-borderSoft/60"
+                  >4.8 ★</span
+                >
+              </div>
+              <div class="text-xs text-taupe">
+                Architectural Marigold &amp; Courtyard Decor · Civil Lines
+              </div>
+              <div class="text-[11px] font-mono text-espresso font-medium pt-0.5">
+                From ₹1,40,000 / turnkey mandap
+              </div>
+            </div>
+            <button
+              class="self-start sm:self-center text-xs uppercase tracking-wider font-semibold text-wine bg-card hover:bg-parchment px-3.5 py-2 rounded-md border border-wine/20 hover:border-wine transition-colors min-w-max shadow-sm"
+            >
+              Save to Wedding
+            </button>
+          </div>
+
+          <!-- Vendor 3 -->
+          <div
+            class="p-4 rounded-lg bg-parchment/50 border border-borderSoft/60 hover:border-champagne transition-all flex flex-col sm:flex-row sm:items-center justify-between gap-3 group"
+          >
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span
+                  class="font-serif text-base font-semibold text-espresso group-hover:text-wine transition-colors"
+                  >Rahul Cinematics</span
+                >
+                <span
+                  class="inline-flex items-center gap-0.5 text-xs text-wine font-medium bg-card px-1.5 py-0.5 rounded border border-borderSoft/60"
+                  >4.9 ★</span
+                >
+              </div>
+              <div class="text-xs text-taupe">4K Drone &amp; Candid Documentary · Wardha Road</div>
+              <div class="text-[11px] font-mono text-espresso font-medium pt-0.5">
+                From ₹1,80,000 / full crew
+              </div>
+            </div>
+            <button
+              class="self-start sm:self-center text-xs uppercase tracking-wider font-semibold text-wine bg-card hover:bg-parchment px-3.5 py-2 rounded-md border border-wine/20 hover:border-wine transition-colors min-w-max shadow-sm"
+            >
+              Save to Wedding
+            </button>
+          </div>
+        </div>
+
+        <!-- Bottom Directory Action -->
+        <div class="pt-4 border-t border-borderSoft/60 flex items-center justify-between">
+          <span class="text-xs text-taupe">8 shortlisted vendors in your wedding space</span>
+          <a
+            href="#showcase"
+            class="text-xs font-semibold text-wine hover:text-wine-deep uppercase tracking-wider inline-flex items-center gap-1 transition-colors"
+          >
+            <span class="">Explore all 8 saved</span>
+            <span class="">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 8. SECTION 7 — QR PHOTO SHARING (Visual focus on QR code) -->
+
+  <!-- 9. SECTION 8 — BUDGET + VENDOR DISCOVERY (Two-column editorial) -->
+
+  <!-- 10. SECTION 9 — COLLABORATION (Simple Admin and Manager roles) -->
+  <section class="w-full bg-mushroom border-t border-borderSoft py-24 sm:py-28">
+    <div class="max-w-6xl mx-auto px-6 sm:px-10">
+      <div class="max-w-2xl mb-12">
+        <div class="text-[11px] font-semibold uppercase tracking-[0.25em] text-champagne mb-2">
+          Governance
+        </div>
+        <h2 class="font-serif text-3xl sm:text-4xl text-espresso font-normal">
+          Plan together. Keep control.
+        </h2>
+        <p class="font-sans text-sm sm:text-base text-taupe mt-3">
+          Involve your core team without confusing or over-sharing permissions.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+        <div class="p-6 rounded-xl bg-card border border-borderSoft space-y-2">
+          <span class="text-[11px] uppercase tracking-widest font-semibold text-wine"
+            >Role: Admin</span
+          >
+          <div class="font-serif text-lg text-espresso font-medium">Full Wedding Management</div>
+          <p class="text-xs text-taupe leading-relaxed">
+            Complete authority over budgets, contractual terms, guest lists, and master wedding
+            settings.
+          </p>
+        </div>
+        <div class="p-6 rounded-xl bg-card border border-borderSoft space-y-2">
+          <span class="text-[11px] uppercase tracking-widest font-semibold text-champagne"
+            >Role: Manager</span
+          >
+          <div class="font-serif text-lg text-espresso font-medium">
+            Assigned Operational Duties
+          </div>
+          <p class="text-xs text-taupe leading-relaxed">
+            Access strictly restricted to assigned ceremonies, operational tasks, and day-of
+            coordination.
+          </p>
+        </div>
+      </div>
+      <!-- Permissions Checklist Matrix -->
+      <div class="bg-card rounded-xl border border-borderSoft p-6 overflow-x-auto">
+        <div class="text-xs uppercase tracking-widest text-taupe font-semibold mb-4">
+          Permissions Matrix
+        </div>
+        <div
+          class="min-w-max flex items-center justify-between py-2.5 px-4 rounded bg-parchment/60 text-xs text-espresso font-medium border border-borderSoft/60"
+        >
+          <span class="">Functions <span class="text-emerald-700 ml-1">✓</span></span>
+          <span class="text-borderSoft">|</span>
+          <span class="">Tasks <span class="text-emerald-700 ml-1">✓</span></span>
+          <span class="text-borderSoft">|</span>
+          <span class="">Guests <span class="text-emerald-700 ml-1">✓</span></span>
+          <span class="text-borderSoft">|</span>
+          <span class="">Expenses <span class="text-emerald-700 ml-1">✓</span></span>
+          <span class="text-borderSoft">|</span>
+          <span class="">Vendors <span class="text-emerald-700 ml-1">✓</span></span>
+          <span class="text-borderSoft">|</span>
+          <span class="">Gallery <span class="text-emerald-700 ml-1">✓</span></span>
+          <span class="text-borderSoft">|</span>
+          <span class="">Website <span class="text-taupe ml-1">—</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 11. SECTION 10 — FINAL CTA (Deep Wine) -->
+  <section class="w-full bg-wine-deep text-[#F7F3EC] py-28 sm:py-36 text-center">
+    <div class="max-w-3xl mx-auto px-6 sm:px-10 space-y-6">
+      <h2 class="font-serif text-4xl sm:text-6xl font-normal leading-tight">
+        Everything your wedding needs.<br />
+        <span class="italic text-champagne">In one place.</span>
+      </h2>
+      <p class="font-sans text-base sm:text-lg text-[#F7F3EC]/75 font-normal max-w-xl mx-auto">
+        Bring your plans, your people, and your celebration together.
+      </p>
+      <div class="pt-6">
+        <a
+          class="inline-flex items-center justify-center font-sans text-xs uppercase tracking-[0.2em] font-semibold bg-parchment text-wine hover:bg-card px-10 py-4 rounded-lg transition-all shadow-md"
+          href="#showcase"
+        >
+          START PLANNING
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+<!-- 12. FOOTER -->
+<footer class="w-full bg-parchment border-t border-borderSoft py-14">
+  <div
+    class="max-w-7xl mx-auto px-6 sm:px-10 flex flex-col md:flex-row items-center justify-between gap-6"
+  >
+    <a
+      class="footer-brand-link"
+      routerLink="/"
+      aria-label="Make My Marriage home"
+      (click)="scrollToTop()"
+    >
+      <img
+        class="footer-brand-logo"
+        src="/images/brand/make-my-marriage-logo-transparent.png"
+        alt="Make My Marriage — Plan, Organize, Celebrate Together"
+      />
+    </a>
+    <nav
+      class="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-wider text-taupe font-medium"
+    >
+      <a class="hover:text-wine transition-colors" href="#showcase">Features</a>
+      <a class="hover:text-wine transition-colors" href="#moving-parts">How It Works</a>
+      <a class="hover:text-wine transition-colors" href="#wedding-website">Wedding Website</a>
+      <a class="hover:text-wine transition-colors" routerLink="/auth">Sign In</a>
+      <a class="hover:text-wine transition-colors" href="#">Privacy</a>
+      <a class="hover:text-wine transition-colors" href="#">Terms</a>
+      <a class="hover:text-wine transition-colors" href="#">Contact</a>
+    </nav>
+    <div class="text-xs text-taupe">© 2026 Make My Marriage. All rights reserved.</div>
+  </div>
+</footer>

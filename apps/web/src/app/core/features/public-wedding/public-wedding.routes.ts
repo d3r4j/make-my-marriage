@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 const page = () =>
-  import('../../shared/components/scaffold-page/scaffold-page.component').then(
+  import('../../../shared/components/scaffold-page/scaffold-page.component').then(
     (module) => module.ScaffoldPageComponent,
   );
 

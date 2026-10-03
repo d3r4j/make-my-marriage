@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #efe9df;
+  color: #211a1b;
+  scroll-behavior: smooth;
+}
+
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+.site-brand-logo {
+  display: block;
+  width: 212px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.footer-brand-logo {
+  display: block;
+  width: 170px;
+  height: 72px;
+  object-fit: contain;
+}
+
+.site-brand-link,
+.footer-brand-link {
+  flex-shrink: 0;
+}
+
+@media (max-width: 767px) {
+  .site-header > div {
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .site-brand-logo {
+    width: 132px;
+    height: 72px;
+  }
+
+  .site-header > div > div > a:first-child {
+    display: none;
+  }
+
+  .site-start-link {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.625rem;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
