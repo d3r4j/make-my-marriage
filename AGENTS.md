@@ -29,6 +29,14 @@ Do not silently invent, remove, or change product requirements.
 
 If these documents conflict or leave an important architectural/product decision ambiguous, ask the user before proceeding.
 
+## Development Progress Tracking
+
+- Before starting feature development or other substantial implementation, read `docs/DEVELOPMENT_PROGRESS.md` to understand what is complete, in progress, and planned.
+- After implementing or materially changing a feature, update `docs/DEVELOPMENT_PROGRESS.md` in the same work session. Record the feature's status, a concise summary, and relevant verification that was actually run.
+- Keep the tracker focused on implementation progress. The PRD, system design, API design, and database design remain the sources of truth for requirements and architecture; do not copy those documents into the tracker.
+- Mark a feature complete only when its approved scope is implemented. Distinguish scaffolds, visual prototypes, and simulations from production functionality.
+- Do not change the tracker for review-only work, documentation-only work, or unrelated maintenance unless the project status itself changes.
+
 ## Project Structure
 
 ### Frontend
