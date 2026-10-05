@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
@@ -22,6 +22,7 @@ export class DashboardPageComponent implements OnInit {
   private readonly http = inject(HttpClient);
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly changeDetector = inject(ChangeDetectorRef);
 
   protected loading = true;
   protected error = '';
@@ -31,7 +32,10 @@ export class DashboardPageComponent implements OnInit {
     this.http.get<WeddingsResponse>(`${environment.apiBaseUrl}/weddings`, { withCredentials: true }).pipe(
       timeout(15000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.loading = false; }),
+      finalize(() => {
+        this.loading = false;
+        this.changeDetector.markForCheck();
+      }),
     ).subscribe({
       next: (response) => {
         this.weddings = response.data?.weddings ?? [];

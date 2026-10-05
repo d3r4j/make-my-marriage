@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, DestroyRef, inject, Input } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, inject, Input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RouterLink } from '@angular/router';
 import { finalize, timeout } from 'rxjs';
@@ -16,6 +16,7 @@ export class ManagementHeaderComponent {
   private readonly http = inject(HttpClient);
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly changeDetector = inject(ChangeDetectorRef);
 
   protected signingOut = false;
   protected error = '';
@@ -27,7 +28,10 @@ export class ManagementHeaderComponent {
     this.http.post(`${environment.apiBaseUrl}/auth/logout`, {}, { withCredentials: true }).pipe(
       timeout(15000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.signingOut = false; }),
+      finalize(() => {
+        this.signingOut = false;
+        this.changeDetector.markForCheck();
+      }),
     ).subscribe({
       next: () => void this.router.navigateByUrl('/auth', { replaceUrl: true }),
       error: () => { this.error = 'Sign out failed. Please try again.'; },

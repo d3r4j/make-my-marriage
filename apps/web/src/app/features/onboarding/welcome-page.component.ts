@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -27,6 +27,7 @@ export class WelcomePageComponent implements OnInit {
   private readonly http = inject(HttpClient);
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly changeDetector = inject(ChangeDetectorRef);
 
   protected loading = true;
   protected ready = false;
@@ -63,7 +64,10 @@ export class WelcomePageComponent implements OnInit {
       }),
       timeout(15000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.loading = false; }),
+      finalize(() => {
+        this.loading = false;
+        this.changeDetector.markForCheck();
+      }),
     ).subscribe({
       next: (response) => {
         if (!response) {
@@ -93,7 +97,10 @@ export class WelcomePageComponent implements OnInit {
     }, { withCredentials: true }).pipe(
       timeout(30000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.creating = false; }),
+      finalize(() => {
+        this.creating = false;
+        this.changeDetector.markForCheck();
+      }),
     ).subscribe({
       next: () => void this.router.navigateByUrl('/app/dashboard'),
       error: (error: unknown) => { this.error = this.errorMessage(error); },

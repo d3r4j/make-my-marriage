@@ -1,5 +1,5 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Component, DestroyRef, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
@@ -28,6 +28,7 @@ export class AuthPageComponent implements OnInit {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly changeDetector = inject(ChangeDetectorRef);
 
   protected view: AuthView = 'signin';
   protected loading = false;
@@ -60,7 +61,7 @@ export class AuthPageComponent implements OnInit {
       }).pipe(
         timeout(30000),
         takeUntilDestroyed(this.destroyRef),
-        finalize(() => { this.loading = false; }),
+        finalize(() => this.finishLoading()),
       ).subscribe({
         next: () => {
           this.view = 'verify-success';
@@ -117,7 +118,7 @@ export class AuthPageComponent implements OnInit {
       )),
       timeout(30000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.loading = false; }),
+      finalize(() => this.finishLoading()),
     ).subscribe({
       next: (response) => void this.router.navigateByUrl(response?.data?.weddings?.length ? '/app/dashboard' : response ? '/app/welcome' : '/app/dashboard'),
       error: (error: unknown) => {
@@ -142,7 +143,7 @@ export class AuthPageComponent implements OnInit {
     }, { withCredentials: true }).pipe(
       timeout(30000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.loading = false; }),
+      finalize(() => this.finishLoading()),
     ).subscribe({
       next: (response) => {
         this.email = response.data?.user?.email ?? this.email.trim().toLowerCase();
@@ -150,7 +151,7 @@ export class AuthPageComponent implements OnInit {
         this.resendMessage = '';
         this.view = 'check-email';
       },
-      error: (error: unknown) => this.showAlert(this.errorMessage(error), 'error'),
+      error: (error: unknown) => this.showAlert(this.registrationErrorMessage(error), 'error'),
     });
   }
 
@@ -162,7 +163,7 @@ export class AuthPageComponent implements OnInit {
     }).pipe(
       timeout(30000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.loading = false; }),
+      finalize(() => this.finishLoading()),
     ).subscribe({
       next: (response) => this.showAlert(response.data?.message ?? 'If an account exists for that email, a reset link has been sent.', 'success'),
       error: (error: unknown) => this.showAlert(this.errorMessage(error), 'error'),
@@ -178,7 +179,7 @@ export class AuthPageComponent implements OnInit {
     }, { withCredentials: true }).pipe(
       timeout(30000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.loading = false; }),
+      finalize(() => this.finishLoading()),
     ).subscribe({
       next: (response) => {
         this.newPassword = '';
@@ -199,7 +200,10 @@ export class AuthPageComponent implements OnInit {
     }).pipe(
       timeout(30000),
       takeUntilDestroyed(this.destroyRef),
-      finalize(() => { this.resendLoading = false; }),
+      finalize(() => {
+        this.resendLoading = false;
+        this.changeDetector.markForCheck();
+      }),
     ).subscribe({
       next: (response) => {
         this.resendKind = 'success';
@@ -215,6 +219,19 @@ export class AuthPageComponent implements OnInit {
   private showAlert(message: string, kind: 'success' | 'error' | 'info'): void {
     this.alert = message;
     this.alertKind = kind;
+    this.changeDetector.markForCheck();
+  }
+
+  private finishLoading(): void {
+    this.loading = false;
+    this.changeDetector.markForCheck();
+  }
+
+  private registrationErrorMessage(error: unknown): string {
+    if (this.errorCode(error) === 'AUTH_EMAIL_DELIVERY_FAILED') {
+      return 'We could not send the verification email, so the account was not created. Check your Resend sender/domain settings and try again.';
+    }
+    return this.errorMessage(error);
   }
 
   private errorCode(error: unknown): string | undefined {
