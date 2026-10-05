@@ -1,0 +1,164 @@
+<div class="auth-page min-h-screen flex flex-col justify-between selection:bg-wine/10 selection:text-wine">
+  <header class="w-full border-b border-borderSoft/60 bg-parchment/90 backdrop-blur-sm sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-5 flex items-center justify-between">
+      <a routerLink="/" class="inline-flex items-center gap-2.5 group focus:outline-none" aria-label="Make My Marriage home">
+        <span class="w-2.5 h-2.5 rotate-45 border border-champagne bg-wine inline-block"></span>
+        <span class="text-xs font-semibold tracking-widest uppercase text-espresso">MAKE MY MARRIAGE</span>
+      </a>
+      <a routerLink="/" class="inline-flex items-center gap-2 text-xs font-medium tracking-wider uppercase text-taupe hover:text-wine py-1 px-2 rounded hover:bg-mushroom/30">← <span>Back to Home</span></a>
+    </div>
+  </header>
+
+  <main class="flex-grow flex items-center justify-center px-4 sm:px-6 py-10 md:py-14">
+    <div class="w-full max-w-[440px] flex flex-col items-center">
+      <section class="w-full bg-card rounded-lg border border-borderSoft shadow-[0_4px_24px_-6px_rgba(63,18,34,0.04)] p-8 sm:p-10 relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-champagne/40 to-transparent"></div>
+
+        @if (view === 'signin') {
+          <div class="space-y-6">
+            <div class="space-y-1.5">
+              <span class="text-[11px] font-semibold tracking-widest uppercase text-champagne block">Wedding Workspace</span>
+              <h1 class="font-serif text-3xl sm:text-[34px] font-medium text-espresso leading-tight">Welcome back</h1>
+              <p class="text-sm text-taupe leading-relaxed">Sign in to continue planning your wedding.</p>
+            </div>
+            @if (alert) {
+              <div class="rounded border text-sm p-3.5 auth-alert" [class.alert-error]="alertKind === 'error'" [class.alert-success]="alertKind === 'success'" [class.alert-info]="alertKind === 'info'" role="status" aria-live="polite">
+                <p>{{ alert }}</p>
+                @if (verificationRequired) {
+                  <button type="button" (click)="resendVerification()" [disabled]="loading || resendLoading" class="text-wine hover:underline font-semibold block text-xs tracking-wide uppercase mt-3">
+                    {{ resendLoading ? 'SENDING…' : 'RESEND VERIFICATION EMAIL →' }}
+                  </button>
+                }
+              </div>
+            }
+            @if (resendMessage) { <p class="text-sm rounded border p-3.5" [class.alert-error]="resendKind === 'error'" [class.alert-success]="resendKind === 'success'" role="status" aria-live="polite">{{ resendMessage }}</p> }
+            <form #signinForm="ngForm" novalidate (ngSubmit)="signinForm.valid && signIn()" class="space-y-5">
+              <div class="space-y-1.5">
+                <label for="signin-email" class="block text-xs font-semibold uppercase tracking-wider text-espresso">Email address</label>
+                <input #signinEmail="ngModel" id="signin-email" name="email" type="email" [(ngModel)]="email" required email autocomplete="email" placeholder="you@example.com" [attr.aria-invalid]="signinEmail.invalid && (signinEmail.touched || signinEmail.dirty || signinForm.submitted)" [attr.aria-describedby]="signinEmail.invalid && (signinEmail.touched || signinEmail.dirty || signinForm.submitted) ? 'signin-email-error' : null" [class.auth-input-invalid]="signinEmail.invalid && (signinEmail.touched || signinEmail.dirty || signinForm.submitted)" class="auth-input w-full px-3.5 py-2.5 bg-card text-espresso text-sm rounded border border-borderSoft transition-colors" />
+                @if (signinEmail.invalid && (signinEmail.touched || signinEmail.dirty || signinForm.submitted)) {
+                  <p id="signin-email-error" class="auth-field-error" role="alert">{{ signinEmail.errors?.['required'] ? 'Enter your email address.' : 'Enter a valid email address.' }}</p>
+                }
+              </div>
+              <div class="space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <label for="signin-password" class="block text-xs font-semibold uppercase tracking-wider text-espresso">Password</label>
+                  <button type="button" (click)="switchView('forgot')" class="text-xs text-taupe hover:text-wine underline-offset-2 hover:underline">Forgot password?</button>
+                </div>
+                <div class="relative">
+                  <input #signinPassword="ngModel" id="signin-password" name="password" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" required maxlength="128" autocomplete="current-password" placeholder="Enter your password" [attr.aria-invalid]="signinPassword.invalid && (signinPassword.touched || signinPassword.dirty || signinForm.submitted)" [attr.aria-describedby]="signinPassword.invalid && (signinPassword.touched || signinPassword.dirty || signinForm.submitted) ? 'signin-password-error' : null" [class.auth-input-invalid]="signinPassword.invalid && (signinPassword.touched || signinPassword.dirty || signinForm.submitted)" class="auth-input w-full px-3.5 py-2.5 pr-16 bg-card text-espresso text-sm rounded border border-borderSoft transition-colors" />
+                  <button type="button" class="auth-password-toggle" (click)="showPassword = !showPassword" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" [attr.aria-pressed]="showPassword">{{ showPassword ? 'Hide' : 'Show' }}</button>
+                </div>
+                @if (signinPassword.invalid && (signinPassword.touched || signinPassword.dirty || signinForm.submitted)) {
+                  <p id="signin-password-error" class="auth-field-error" role="alert">{{ signinPassword.errors?.['required'] ? 'Enter your password.' : 'Password cannot exceed 128 characters.' }}</p>
+                }
+              </div>
+              <button type="submit" [disabled]="loading" class="auth-submit w-full h-11 bg-wine hover:bg-wine-deep text-card font-medium text-xs tracking-widest uppercase rounded-[4px] flex items-center justify-center gap-2">
+                @if (loading) { <span class="auth-spinner" aria-hidden="true"></span> SIGNING IN… } @else { SIGN IN }
+              </button>
+            </form>
+            <div class="pt-4 border-t border-borderSoft/50 text-center">
+              <p class="text-xs text-taupe">New to Make My Marriage? <button type="button" (click)="switchView('register')" class="font-medium text-wine underline underline-offset-4 ml-1">Create an account</button></p>
+            </div>
+          </div>
+        }
+
+        @if (view === 'register') {
+          <div class="space-y-6">
+            <div class="space-y-1.5">
+              <button type="button" (click)="switchView('signin')" class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-taupe hover:text-wine mb-2">← Back to Sign In</button>
+              <span class="text-[11px] font-semibold tracking-widest uppercase text-champagne block">Workspace Onboarding</span>
+              <h1 class="font-serif text-3xl font-medium text-espresso leading-tight">Create an account</h1>
+              <p class="text-sm text-taupe leading-relaxed">Start a shared wedding workspace for your planning team.</p>
+            </div>
+            @if (alert) { <div class="rounded border text-sm p-3.5 auth-alert alert-error" role="alert">{{ alert }}</div> }
+            <form #registerForm="ngForm" novalidate (ngSubmit)="registerForm.valid && register()" class="space-y-4">
+              <div class="space-y-1.5">
+                <label for="reg-name" class="block text-xs font-semibold uppercase tracking-wider text-espresso">Full name</label>
+                <input #regName="ngModel" id="reg-name" name="name" type="text" [(ngModel)]="name" required minlength="2" maxlength="100" pattern=".*\S.*" autocomplete="name" placeholder="Your full name" [attr.aria-invalid]="regName.invalid && (regName.touched || regName.dirty || registerForm.submitted)" [attr.aria-describedby]="regName.invalid && (regName.touched || regName.dirty || registerForm.submitted) ? 'reg-name-error' : null" [class.auth-input-invalid]="regName.invalid && (regName.touched || regName.dirty || registerForm.submitted)" class="auth-input w-full px-3.5 py-2.5 bg-card text-espresso text-sm rounded border border-borderSoft" />
+                @if (regName.invalid && (regName.touched || regName.dirty || registerForm.submitted)) { <p id="reg-name-error" class="auth-field-error" role="alert">{{ regName.errors?.['required'] || regName.errors?.['pattern'] ? 'Enter your name.' : regName.errors?.['minlength'] ? 'Name must be at least 2 characters.' : 'Name cannot exceed 100 characters.' }}</p> }
+              </div>
+              <div class="space-y-1.5">
+                <label for="reg-email" class="block text-xs font-semibold uppercase tracking-wider text-espresso">Email address</label>
+                <input #regEmail="ngModel" id="reg-email" name="email" type="email" [(ngModel)]="email" required email autocomplete="email" placeholder="you@example.com" [attr.aria-invalid]="regEmail.invalid && (regEmail.touched || regEmail.dirty || registerForm.submitted)" [attr.aria-describedby]="regEmail.invalid && (regEmail.touched || regEmail.dirty || registerForm.submitted) ? 'reg-email-error' : null" [class.auth-input-invalid]="regEmail.invalid && (regEmail.touched || regEmail.dirty || registerForm.submitted)" class="auth-input w-full px-3.5 py-2.5 bg-card text-espresso text-sm rounded border border-borderSoft" />
+                @if (regEmail.invalid && (regEmail.touched || regEmail.dirty || registerForm.submitted)) { <p id="reg-email-error" class="auth-field-error" role="alert">{{ regEmail.errors?.['required'] ? 'Enter your email address.' : 'Enter a valid email address.' }}</p> }
+              </div>
+              <div class="space-y-1.5">
+                <label for="reg-password" class="block text-xs font-semibold uppercase tracking-wider text-espresso">Create password</label>
+                <div class="relative">
+                  <input #regPassword="ngModel" id="reg-password" name="password" [type]="showPassword ? 'text' : 'password'" [(ngModel)]="password" required minlength="8" maxlength="128" autocomplete="new-password" placeholder="Minimum 8 characters" [attr.aria-invalid]="regPassword.invalid && (regPassword.touched || regPassword.dirty || registerForm.submitted)" [attr.aria-describedby]="regPassword.invalid && (regPassword.touched || regPassword.dirty || registerForm.submitted) ? 'reg-password-error' : 'reg-password-hint'" [class.auth-input-invalid]="regPassword.invalid && (regPassword.touched || regPassword.dirty || registerForm.submitted)" class="auth-input w-full px-3.5 py-2.5 pr-16 bg-card text-espresso text-sm rounded border border-borderSoft" />
+                  <button type="button" class="auth-password-toggle" (click)="showPassword = !showPassword" [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'" [attr.aria-pressed]="showPassword">{{ showPassword ? 'Hide' : 'Show' }}</button>
+                </div>
+                @if (regPassword.invalid && (regPassword.touched || regPassword.dirty || registerForm.submitted)) { <p id="reg-password-error" class="auth-field-error" role="alert">{{ regPassword.errors?.['required'] ? 'Enter a password.' : regPassword.errors?.['minlength'] ? 'Password must be at least 8 characters.' : 'Password cannot exceed 128 characters.' }}</p> }
+                @else { <p id="reg-password-hint" class="text-xs text-taupe">Use 8 to 128 characters.</p> }
+              </div>
+              <button type="submit" [disabled]="loading" class="auth-submit w-full h-11 bg-wine hover:bg-wine-deep text-card font-medium text-xs tracking-widest uppercase rounded-[4px] flex items-center justify-center gap-2">
+                @if (loading) { <span class="auth-spinner" aria-hidden="true"></span> CREATING ACCOUNT… } @else { CREATE WORKSPACE ACCOUNT }
+              </button>
+            </form>
+            <div class="pt-4 border-t border-borderSoft/50 text-center"><p class="text-xs text-taupe">Already have an account? <button type="button" (click)="switchView('signin')" class="font-medium text-wine underline underline-offset-4 ml-1">Sign in</button></p></div>
+          </div>
+        }
+
+        @if (view === 'check-email') {
+          <div class="space-y-6 text-center">
+            <div class="verification-mark" aria-hidden="true">✉</div>
+            <div class="space-y-2">
+              <span class="text-[11px] font-semibold tracking-widest uppercase text-champagne">One last step</span>
+              <h1 class="font-serif text-3xl font-medium text-espresso leading-tight">Check your email</h1>
+              <p class="text-sm text-taupe leading-relaxed">We sent a verification link to</p>
+              <p class="font-semibold text-espresso break-all">{{ email }}</p>
+              <p class="text-sm text-taupe leading-relaxed">Verify your address to activate your account and continue to your wedding workspace.</p>
+            </div>
+            @if (resendMessage) { <p class="text-sm rounded border p-3.5 text-left" [class.alert-error]="resendKind === 'error'" [class.alert-success]="resendKind === 'success'" role="status" aria-live="polite">{{ resendMessage }}</p> }
+            <button type="button" (click)="resendVerification()" [disabled]="resendLoading" class="auth-submit w-full h-11 border border-wine text-wine hover:bg-wine hover:text-card font-medium text-xs tracking-widest uppercase rounded-[4px]">
+              {{ resendLoading ? 'SENDING…' : 'RESEND VERIFICATION EMAIL' }}
+            </button>
+            <button type="button" (click)="switchView('signin')" [disabled]="resendLoading" class="text-xs font-semibold tracking-widest uppercase text-taupe hover:text-wine">Back to Sign In</button>
+          </div>
+        }
+
+        @if (view === 'verify-success') {
+          <div class="space-y-6 text-center">
+            <div class="verification-mark verification-mark-success" aria-hidden="true">✓</div>
+            <div class="space-y-2"><span class="text-[11px] font-semibold tracking-widest uppercase text-champagne">Make My Marriage</span><h1 class="font-serif text-3xl font-medium text-espresso">Email verified</h1><p class="text-sm text-taupe leading-relaxed">{{ verificationMessage }}</p></div>
+            <button type="button" (click)="continueToSignIn()" class="auth-submit w-full h-11 bg-wine hover:bg-wine-deep text-card font-medium text-xs tracking-widest uppercase rounded-[4px]">Continue to Make My Marriage</button>
+          </div>
+        }
+
+        @if (view === 'verify-error') {
+          <div class="space-y-6 text-center">
+            <div class="verification-mark verification-mark-error" aria-hidden="true">!</div>
+            <div class="space-y-2"><span class="text-[11px] font-semibold tracking-widest uppercase text-champagne">Verification link</span><h1 class="font-serif text-3xl font-medium text-espresso">We couldn’t verify this email</h1><p class="text-sm text-taupe leading-relaxed">{{ verificationMessage }}</p></div>
+            <button type="button" (click)="continueToSignIn()" class="auth-submit w-full h-11 bg-wine hover:bg-wine-deep text-card font-medium text-xs tracking-widest uppercase rounded-[4px]">Back to Sign In</button>
+          </div>
+        }
+
+        @if (view === 'forgot') {
+          <div class="space-y-6">
+            <div class="space-y-1.5"><button type="button" (click)="switchView('signin')" class="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase text-taupe hover:text-wine mb-2">← Back to Sign In</button><span class="text-[11px] font-semibold tracking-widest uppercase text-champagne block">Account Recovery</span><h1 class="font-serif text-3xl font-medium text-espresso">Reset your password</h1><p class="text-sm text-taupe leading-relaxed">Enter your account email and we’ll send a reset link.</p></div>
+            @if (alert) { <div class="rounded border text-sm p-3.5 auth-alert" [class.alert-error]="alertKind === 'error'" [class.alert-success]="alertKind === 'success'" role="status" aria-live="polite">{{ alert }}</div> }
+            <form #forgotForm="ngForm" (ngSubmit)="requestPasswordReset()" class="space-y-5"><div class="space-y-1.5"><label for="forgot-email" class="block text-xs font-semibold uppercase tracking-wider text-espresso">Email address</label><input id="forgot-email" name="email" type="email" [(ngModel)]="email" required email autocomplete="email" placeholder="you@example.com" class="auth-input w-full px-3.5 py-2.5 bg-card text-espresso text-sm rounded border border-borderSoft" /></div><button type="submit" [disabled]="forgotForm.invalid || loading" class="auth-submit w-full h-11 bg-wine text-card font-medium text-xs tracking-widest uppercase rounded-[4px]">{{ loading ? 'SENDING…' : 'SEND RESET LINK' }}</button></form>
+          </div>
+        }
+
+        @if (view === 'reset') {
+          <div class="space-y-6">
+            <div class="space-y-1.5"><span class="text-[11px] font-semibold tracking-widest uppercase text-champagne block">Account Recovery</span><h1 class="font-serif text-3xl font-medium text-espresso">Choose a new password</h1><p class="text-sm text-taupe leading-relaxed">Create a new password for your account.</p></div>
+            @if (alert) { <div class="rounded border text-sm p-3.5 auth-alert" [class.alert-error]="alertKind === 'error'" [class.alert-success]="alertKind === 'success'" role="status" aria-live="polite">{{ alert }}</div> }
+            <form #resetForm="ngForm" (ngSubmit)="resetPassword()" class="space-y-5"><div class="space-y-1.5"><label for="new-password" class="block text-xs font-semibold uppercase tracking-wider text-espresso">New password</label><input id="new-password" name="newPassword" type="password" [(ngModel)]="newPassword" required minlength="8" maxlength="128" autocomplete="new-password" placeholder="Minimum 8 characters" class="auth-input w-full px-3.5 py-2.5 bg-card text-espresso text-sm rounded border border-borderSoft" /></div><button type="submit" [disabled]="resetForm.invalid || loading" class="auth-submit w-full h-11 bg-wine text-card font-medium text-xs tracking-widest uppercase rounded-[4px]">{{ loading ? 'UPDATING…' : 'RESET PASSWORD' }}</button></form>
+          </div>
+        }
+      </section>
+
+      @if (view === 'signin' || view === 'register' || view === 'forgot' || view === 'reset') {
+        <aside class="w-full mt-6 bg-mushroom/40 border border-borderSoft/80 rounded-lg p-5 text-center">
+          <div class="flex flex-col items-center justify-center space-y-2"><div class="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-espresso"><span class="w-1.5 h-1.5 rounded-full bg-champagne"></span>Have a wedding invitation?</div><p class="text-xs text-taupe max-w-xs leading-relaxed">Guests can open their invitation directly, without creating an account or logging in.</p></div>
+        </aside>
+      }
+      <p class="text-[11px] text-taupe/80 text-center mt-5 tracking-wide">Secure authentication for wedding hosts, admins, and delegated managers.</p>
+    </div>
+  </main>
+
+  <footer class="w-full border-t border-borderSoft/60 py-6 px-6 bg-parchment text-center sm:text-left"><div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-taupe"><div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rotate-45 border border-champagne/70 bg-wine/50 inline-block"></span><span>© Make My Marriage. All rights reserved.</span></div><div class="flex items-center gap-6"><a routerLink="/" fragment="privacy" class="hover:text-wine">Privacy</a><a routerLink="/" fragment="terms" class="hover:text-wine">Terms</a><a href="mailto:support@makemymarriage.com" class="hover:text-wine">Support</a></div></div></footer>
+</div>

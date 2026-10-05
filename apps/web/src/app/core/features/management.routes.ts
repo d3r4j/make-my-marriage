@@ -7,7 +7,14 @@ const page = () =>
 
 export const MANAGEMENT_ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
-  { path: 'dashboard', loadComponent: page, data: { title: 'Dashboard scaffold' } },
+  {
+    path: 'welcome',
+    loadComponent: () => import('../../features/onboarding/welcome-page.component').then((module) => module.WelcomePageComponent),
+  },
+  {
+    path: 'dashboard',
+    loadComponent: () => import('../../features/onboarding/dashboard-page.component').then((module) => module.DashboardPageComponent),
+  },
   { path: 'vendor-discovery', loadComponent: page, data: { title: 'Vendor discovery scaffold' } },
   {
     path: 'wedding',

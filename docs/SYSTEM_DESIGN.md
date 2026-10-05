@@ -223,8 +223,8 @@ VERIFY EMAIL
   |
 LOGIN
   |
-  +-- issue access token
-  +-- establish refresh session
+  +-- create an opaque browser session
+  +-- set a Secure/HttpOnly/SameSite cookie (Secure in production)
   |
 REQUEST
   |
@@ -313,6 +313,8 @@ Major domain objects should be separate collections rather than one giant Weddin
 | Collection | Key fields | Notes |
 |---|---|---|
 | `users` | `_id, email, passwordHash, isEmailVerified, name, createdAt` | Authentication identity. |
+| `sessions` | `userId, tokenHash, createdAt, expiresAt` | Revocable server-side login sessions; browser token is HttpOnly cookie. |
+| `auth_tokens` | `userId, purpose, tokenHash, expiresAt` | One-time email-verification and password-reset credentials. |
 | `weddings` | `_id, names, weddingDate, location, venue, status, slug` | Central tenant object. |
 | `wedding_memberships` | `userId, weddingId, role, permissions, isPrimaryAdmin, status` | Authorization boundary. |
 | `functions` | `weddingId, name, date, times, venue, status` | Custom wedding events. |
@@ -692,14 +694,14 @@ Security is primarily about enforcing boundaries consistently. The public weddin
 | Area | V1 approach |
 |---|---|
 | Passwords | Strong password hashing; never store plaintext. |
-| Authentication | Short-lived access credential plus refresh mechanism; secure cookie strategy where applicable. |
+| Authentication | Random opaque session token in an HttpOnly, SameSite cookie; persist only its hash in MongoDB and revoke on logout/password reset. |
 | Authorization | Server-enforced membership + role + permission checks. |
 | Public tokens | Cryptographically random; avoid sequential IDs; store hashes where practical. |
 | Secrets | Environment/secret management; never ship provider secrets to Angular. |
 | CORS | Explicitly allow the production frontend origin(s). |
 | Headers | Enable common HTTP security headers. |
 | Validation | Validate all request bodies, query parameters and path parameters on server. |
-| Rate limiting | Apply to public RSVP, upload and vendor-discovery endpoints. |
+| Rate limiting | Apply to authentication, public RSVP, upload and vendor-discovery endpoints. Initial auth limits are per process and should move to shared storage before multi-instance deployment. |
 | Uploads | Allow-list types; enforce size/count limits; associate upload with wedding + album context. |
 | Privacy | Public APIs return only public fields; management APIs require membership. |
 | Deletion | Prefer soft deletion for wedding-level destructive actions; define recovery period. |

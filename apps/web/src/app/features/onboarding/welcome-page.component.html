@@ -1,0 +1,61 @@
+<main class="welcome-page min-h-screen flex flex-col">
+  <app-management-header />
+
+  @if (loading) {
+    <div class="flex-1 grid place-items-center"><p class="text-sm text-taupe" role="status">Preparing your workspace…</p></div>
+  } @else {
+    <div class="flex-1 max-w-6xl w-full mx-auto px-6 sm:px-10 py-12 md:py-16">
+      <section class="welcome-intro max-w-2xl mb-12 md:mb-16">
+        <span class="text-[11px] font-semibold tracking-widest uppercase text-wine">A shared place to begin</span>
+        <h1 class="font-serif text-4xl sm:text-5xl text-espresso mt-4 leading-tight">Welcome, {{ name || 'planner' }}.</h1>
+        <p class="font-serif text-2xl sm:text-3xl text-espresso/75 mt-2">Your wedding workspace starts here.</p>
+        <p class="text-sm text-taupe mt-5 leading-7 max-w-xl">Start with the couple, date, and place. We’ll create your private planning space and make you its Admin.</p>
+      </section>
+
+      @if (error) { <p class="max-w-3xl mb-6 rounded border border-[#d98a84] bg-[#fbf0ee] p-3.5 text-sm text-espresso" role="alert">{{ error }}</p> }
+
+      @if (!ready && error) {
+        <button type="button" (click)="retryLoad()" [disabled]="loading" class="auth-submit min-h-11 border border-wine px-6 text-xs font-semibold tracking-widest uppercase text-wine disabled:opacity-50">{{ loading ? 'CHECKING…' : 'RETRY' }}</button>
+      }
+
+      @if (ready) {
+      <div class="grid lg:grid-cols-[minmax(0,1.4fr)_minmax(260px,0.6fr)] gap-12 lg:gap-20 items-start">
+        <form #weddingForm="ngForm" (ngSubmit)="createWedding()" class="space-y-8">
+          <section class="border-t border-borderSoft pt-5">
+            <div class="flex items-baseline justify-between gap-4 mb-5"><h2 class="font-serif text-xl text-espresso">The couple</h2><span class="text-[10px] tracking-widest uppercase text-taupe">01</span></div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="field-label">First partner’s name<input name="firstPartner" [(ngModel)]="firstPartner" required minlength="2" maxlength="100" placeholder="Full name" /></label>
+              <label class="field-label">Second partner’s name<input name="secondPartner" [(ngModel)]="secondPartner" required minlength="2" maxlength="100" placeholder="Full name" /></label>
+            </div>
+          </section>
+
+          <section class="border-t border-borderSoft pt-5">
+            <div class="flex items-baseline justify-between gap-4 mb-5"><h2 class="font-serif text-xl text-espresso">When and where</h2><span class="text-[10px] tracking-widest uppercase text-taupe">02</span></div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <label class="field-label">Wedding date<input name="weddingDate" [(ngModel)]="weddingDate" type="date" required /></label>
+              <label class="field-label">City or location<input name="locationName" [(ngModel)]="locationName" required minlength="2" maxlength="150" placeholder="City or town" /></label>
+              <label class="field-label sm:col-span-2">Location address <span class="normal-case tracking-normal text-taupe">Optional</span><input name="locationAddress" [(ngModel)]="locationAddress" maxlength="250" placeholder="Area, city, or address" /></label>
+              <label class="field-label">Venue <span class="normal-case tracking-normal text-taupe">Optional</span><input name="venueName" [(ngModel)]="venueName" maxlength="150" placeholder="Venue name" /></label>
+              <label class="field-label">Venue address <span class="normal-case tracking-normal text-taupe">Optional</span><input name="venueAddress" [(ngModel)]="venueAddress" maxlength="250" placeholder="Venue address" /></label>
+            </div>
+          </section>
+
+          <button type="submit" [disabled]="weddingForm.invalid || creating" class="auth-submit inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-3 bg-wine px-7 text-xs font-semibold tracking-widest uppercase text-card hover:bg-wine-deep disabled:opacity-50">
+            @if (creating) { <span class="auth-spinner" aria-hidden="true"></span> CREATING YOUR WEDDING… } @else { CREATE YOUR WEDDING <span aria-hidden="true">→</span> }
+          </button>
+        </form>
+
+        <aside class="border-l-2 border-champagne pl-6 py-1">
+          <h2 class="font-serif text-xl text-espresso">Your planning begins together.</h2>
+          <p class="text-sm text-taupe leading-7 mt-3">Your workspace brings the details into one shared place. You’ll start as its Admin and can invite a Manager when you’re ready.</p>
+          <div class="mt-7 space-y-4 text-sm text-espresso">
+            <p class="flex gap-3"><span class="text-wine">01</span><span>One home for your wedding plans</span></p>
+            <p class="flex gap-3"><span class="text-wine">02</span><span>A website and gallery space to build on</span></p>
+            <p class="flex gap-3"><span class="text-wine">03</span><span>Room to bring your people in</span></p>
+          </div>
+        </aside>
+      </div>
+      }
+    </div>
+  }
+</main>

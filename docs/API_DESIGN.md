@@ -228,11 +228,15 @@ Create a user.
 
 Send verification email through Resend.
 
+Registration returns the created account representation after the verification message is sent through Resend. A duplicate email returns `409`.
+
+An email delivery failure returns `503` with `AUTH_EMAIL_DELIVERY_FAILED`; the incomplete account and verification token are removed so the user can retry registration. Login for an unverified account returns `403` with `AUTH_EMAIL_NOT_VERIFIED` and does not create a session.
+
 ## GET `/api/auth/verify-email?token=<token>`
 
 Verify a user email.
 
-Token should be one-time-use and expire.
+Token is one-time-use and expires. Reuse returns `AUTH_VERIFICATION_TOKEN_USED`; invalid or expired links return `AUTH_VERIFICATION_TOKEN_INVALID`.
 
 ## POST `/api/auth/login`
 
@@ -244,6 +248,12 @@ Token should be one-time-use and expire.
 ```
 
 Returns the authenticated user and establishes the chosen secure authentication state.
+
+The current implementation establishes a 14-day opaque server-side MongoDB session in an HttpOnly, SameSite cookie (Secure in production). Only the session token hash is stored. Unverified accounts cannot sign in.
+
+## POST `/api/auth/resend-verification`
+
+Request a new verification email for an account. The response is generic so the endpoint does not reveal whether the address is registered or already verified.
 
 ## POST `/api/auth/logout`
 
@@ -310,6 +320,8 @@ The application should initialize:
 6. General gallery QR configuration.
 
 Where multiple records must succeed together, use a MongoDB transaction as appropriate.
+
+The creation response returns the general-upload URL once as `data.wedding.generalUploadUrl`. The URL contains the raw bearer token; persist only its hash and do not log the URL.
 
 ## GET `/api/weddings`
 
@@ -1236,8 +1248,11 @@ Examples:
 ```text
 AUTH_INVALID_CREDENTIALS
 AUTH_EMAIL_NOT_VERIFIED
-AUTH_TOKEN_INVALID
-AUTH_TOKEN_EXPIRED
+AUTH_EMAIL_DELIVERY_FAILED
+AUTH_VERIFICATION_TOKEN_INVALID
+AUTH_VERIFICATION_TOKEN_USED
+AUTH_SESSION_REQUIRED
+AUTH_RATE_LIMITED
 
 WEDDING_NOT_FOUND
 WEDDING_ACCESS_DENIED
@@ -1609,6 +1624,8 @@ High-priority endpoints:
 POST /api/auth/login
 POST /api/auth/register
 POST /api/auth/forgot-password
+POST /api/auth/resend-verification
+POST /api/auth/reset-password
 
 POST /api/public/invitations/:token/rsvp
 
@@ -1619,6 +1636,8 @@ GET /api/vendor-discovery
 ```
 
 Exact limits can be tuned after real-world usage.
+
+The initial auth implementation applies per-process limits over a 15-minute window: 10 login and verification attempts, and 5 registration, resend-verification, forgot-password, and reset-password attempts per client IP and endpoint. Because counters are local to one API process, use shared storage before running multiple API instances.
 
 ---
 

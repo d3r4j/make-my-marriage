@@ -1,0 +1,20 @@
+<main class="dashboard-page min-h-screen">
+  <app-management-header context="Your wedding workspace" />
+  <div class="max-w-6xl mx-auto px-6 sm:px-10 py-12 md:py-16">
+    <span class="text-[11px] font-semibold tracking-widest uppercase text-wine">Your workspace</span>
+    <h1 class="font-serif text-4xl text-espresso mt-3">The wedding, together.</h1>
+    <p class="text-sm text-taupe mt-3 max-w-xl leading-7">Your shared planning space is ready. Start with the essentials, then bring your planning team in when you’re ready.</p>
+    @if (loading) { <p class="mt-10 text-sm text-taupe" role="status">Loading your wedding…</p> }
+    @if (error) { <p class="mt-8 border border-[#d98a84] bg-[#fbf0ee] p-3.5 text-sm" role="alert">{{ error }}</p> }
+    @if (!loading && weddings.length) {
+      <section class="mt-12 border-t border-borderSoft">
+        @for (wedding of weddings; track wedding.id) {
+          <article class="flex flex-col sm:flex-row sm:items-center justify-between gap-5 py-7 border-b border-borderSoft">
+            <div><h2 class="font-serif text-2xl text-espresso">{{ wedding.title }}</h2><p class="text-sm text-taupe mt-2">{{ wedding.weddingDate | date:'longDate' }}</p></div>
+            <a routerLink="/app/wedding/settings" class="inline-flex items-center justify-center min-h-10 border border-wine px-5 text-xs font-semibold tracking-widest uppercase text-wine hover:bg-wine hover:text-card">Open workspace <span class="ml-3" aria-hidden="true">→</span></a>
+          </article>
+        }
+      </section>
+    }
+  </div>
+</main>

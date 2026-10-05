@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { MANAGEMENT_ROUTES } from './core/features/management.routes';
 import { PUBLIC_WEDDING_ROUTES } from './core/features/public-wedding/public-wedding.routes';
+import { managementAuthGuard } from './core/guards/management-auth.guard';
 
 export const routes: Routes = [
   {
@@ -14,13 +15,11 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadComponent: () =>
-      import('./shared/components/scaffold-page/scaffold-page.component').then(
-        (module) => module.ScaffoldPageComponent,
-      ),
-    data: { title: 'Authentication scaffold' },
+      import('./features/auth/auth-page.component').then((module) => module.AuthPageComponent),
   },
   {
     path: 'app',
+    canActivate: [managementAuthGuard],
     children: MANAGEMENT_ROUTES,
   },
   ...PUBLIC_WEDDING_ROUTES,

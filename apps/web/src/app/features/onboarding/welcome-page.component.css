@@ -1,0 +1,40 @@
+.welcome-page {
+  background: #f7f3ec;
+  color: #211a1b;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.field-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  color: #4a3d3d;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.field-label input {
+  width: 100%;
+  min-height: 2.75rem;
+  border: 1px solid #d9d0c5;
+  border-radius: 3px;
+  background: #fffdfa;
+  padding: 0.65rem 0.75rem;
+  color: #211a1b;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.field-label input:focus {
+  outline: 1px solid #58182e;
+  border-color: #58182e;
+}
+
+.field-label input::placeholder {
+  color: #a39b91;
+}

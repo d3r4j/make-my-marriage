@@ -149,6 +149,38 @@ UNIQUE: { email: 1 }
 { status: 1 }
 ```
 
+## 4.1.1 `sessions`
+
+### Purpose
+
+Stores revocable authenticated browser sessions. The browser receives a random opaque token in an HttpOnly cookie; MongoDB stores only its SHA-256 hash.
+
+### Suggested document
+
+```js
+{
+  _id: ObjectId,
+  userId: ObjectId,
+  tokenHash: String,
+  createdAt: Date,
+  expiresAt: Date
+}
+```
+
+### Indexes and lifecycle
+
+```text
+UNIQUE: { tokenHash: 1 }
+TTL: { expiresAt: 1 }, expireAfterSeconds: 0
+{ userId: 1 }
+```
+
+Logout revokes the active session. Password reset revokes every session for that user. Expiration is enforced by both query predicates and MongoDB TTL cleanup.
+
+## 4.1.2 `auth_tokens`
+
+Stores one-time email-verification and password-reset tokens. Only token hashes are persisted; each record includes `userId`, `purpose`, `createdAt`, and `expiresAt`. Verification tokens may include `usedAt` after consumption so a repeated link can be distinguished from an invalid or expired link; used tokens cannot verify an account again. Indexes are unique on `tokenHash`, TTL on `expiresAt`, and `{userId: 1, purpose: 1}` for revocation. A TTL index cleans up expired records.
+
 ---
 
 ## 4.2 `weddings`

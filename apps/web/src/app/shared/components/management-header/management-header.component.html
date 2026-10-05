@@ -1,0 +1,12 @@
+<header class="border-b border-borderSoft bg-parchment">
+  <div class="max-w-6xl mx-auto px-6 sm:px-10 py-4 flex flex-wrap items-center justify-between gap-3">
+    <a routerLink="/" class="inline-flex items-center gap-2.5" aria-label="Make My Marriage home"><span class="w-2.5 h-2.5 rotate-45 border border-champagne bg-wine inline-block"></span><span class="text-xs font-semibold tracking-widest uppercase text-espresso">MAKE MY MARRIAGE</span></a>
+    <div class="flex items-center gap-4">
+      <span class="hidden sm:inline text-[11px] font-semibold tracking-widest uppercase text-taupe">{{ context }}</span>
+      <button type="button" (click)="signOut()" [disabled]="signingOut" class="min-h-9 border border-wine px-4 text-xs font-semibold tracking-widest uppercase text-wine hover:bg-wine hover:text-card disabled:opacity-50" [attr.aria-busy]="signingOut">
+        {{ signingOut ? 'Signing out…' : 'Sign out' }}
+      </button>
+    </div>
+  </div>
+  @if (error) { <p class="max-w-6xl mx-auto px-6 sm:px-10 pb-3 text-sm text-[#8f3933]" role="alert">{{ error }}</p> }
+</header>
